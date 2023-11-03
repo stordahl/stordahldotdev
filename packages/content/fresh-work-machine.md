@@ -1,5 +1,5 @@
 ---
-title: "Setting Up A Fresh Work Machine"
+title: Setting Up A Fresh Work Machine
 date: "2022-03-09"
 status: published
 ---

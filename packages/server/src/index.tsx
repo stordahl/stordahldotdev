@@ -1,6 +1,5 @@
 import { Hono } from "hono";
 import { serveStatic } from 'hono/cloudflare-workers';
-import { Octokit } from "octokit";
 import { HomePage, WritingPage, ArticlePage } from "./components";
 import { build_article_page_data, parse_frontmatter, remove_frontmatter } from "./data";
 
@@ -34,8 +33,8 @@ app.get('/writing', async (c) => {
 
 app.get('/writing/:slug', async (c) => {
 
-  const raw = await build_article_page_data(c.env.GH_TOKEN, c.req.param("slug"))
-  const metadata = parse_frontmatter(raw);
+  const raw = await build_article_page_data(c.env?.GH_TOKEN as string, c.req.param("slug"))
+  const metadata = parse_frontmatter(raw!);
 
   const props = {
     site_data: {
@@ -44,7 +43,7 @@ app.get('/writing/:slug', async (c) => {
       image: 'https://example.com/image.png',
     },
     metadata,
-    raw_markdown: remove_frontmatter(raw),
+    raw_markdown: remove_frontmatter(raw!),
   }
 
   return c.html(<ArticlePage {...props} />);

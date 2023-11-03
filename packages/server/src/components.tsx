@@ -1,9 +1,6 @@
-import { html, raw } from "hono/html";
-import { Marked } from "marked";
-import {markedHighlight} from "marked-highlight";
-import prism from "prismjs";
+import { raw } from "hono/html";
 import { Layout, type SiteData } from "./utils";
-import { type ArticlePageData } from "./data";
+import { parse_markdown, highlight_code, type ArticleMetaData } from "./data";
 
 export const HomePage = (props: { site_data: SiteData; }) => {
   return (
@@ -46,7 +43,8 @@ export const ArticlePage = (props: { site_data: SiteData; metadata: ArticleMetaD
     year: 'numeric'
   });
 
-  const raw_html = marked.parse(props.raw_markdown)
+  const parsed_markdown = parse_markdown(props.raw_markdown)
+  const raw_html = highlight_code(parsed_markdown);
 
   return (
     <Layout {...props.site_data}>
@@ -56,16 +54,3 @@ export const ArticlePage = (props: { site_data: SiteData; metadata: ArticleMetaD
     </Layout>
   )
 };
-
-const marked = new Marked(
-  markedHighlight({
-    langPrefix: 'language-',
-    highlight: function(code, lang) {
-      if (prism.languages[lang]) {
-        return prism.highlight(code, prism.languages[lang], lang);
-      } else {
-        return code;
-      }
-    }
-  })
-);

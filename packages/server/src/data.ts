@@ -1,5 +1,10 @@
 import { Octokit } from "octokit";
 import { Buffer } from "buffer";
+import { marked } from "marked";
+import hljs from 'highlight.js/lib/core';
+import typescript from 'highlight.js/lib/languages/typescript';
+import shell from "highlight.js/lib/languages/shell";
+import xhtml from "highlight.js/lib/languages/xml";
 
 export type ArticleMetaData = {
   title: string,
@@ -65,24 +70,42 @@ export function parse_frontmatter(markdown: string): ArticleMetaData {
 export function remove_frontmatter(markdown: string): string {
   const lines = markdown.trim().split('\n');
 
-  // Check if the frontmatter starts with '---'
   if (lines[0].trim() === '---') {
     let i = 1;
-
-    // Find the end of the frontmatter (the second '---')
     while (i < lines.length && lines[i].trim() !== '---') {
       i++;
     }
-
     if (i < lines.length) {
-      // Remove the frontmatter lines, including the first and second '---'
       lines.splice(0, i + 1);
     }
   }
 
-  // Join the remaining lines to get the content without frontmatter
   const contentWithoutFrontmatter = lines.join('\n');
   return contentWithoutFrontmatter;
+}
+
+export function parse_markdown(raw_markdown: string) {
+  const tokens = marked.lexer(raw_markdown);
+  tokens.forEach(function( token ) {
+    if ( token.type === "code" ) {
+        token.escaped = true;
+    }
+  });
+
+  return marked.parser( tokens );
+}
+
+export function highlight_code(html: string) {
+  // Then register the languages you need
+  hljs.registerLanguage('typescript', typescript);
+  hljs.registerLanguage('shell', shell);
+  hljs.registerLanguage('html', xhtml);
+
+  const codeBlockRegex = /<pre><code class="language-(.*?)">([\s\S]*?)<\/code><\/pre>/g;
+  return html.replace(codeBlockRegex, (_, language, code) => {
+    const highlightedCode = hljs.highlight(code, { language }).value
+    return `<pre class="hljs"><code>${highlightedCode}</code></pre>`;
+  });
 }
 
 export const config = {

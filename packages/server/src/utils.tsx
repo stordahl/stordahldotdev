@@ -1,5 +1,4 @@
 import { html } from "hono/html";
-import { type PageData } from "./data";
 
 export interface SiteData {
   title: string
@@ -9,10 +8,12 @@ export interface SiteData {
 }
 
 export const Layout = (props: SiteData) => html`
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>${props.title}</title>
+  <meta name="viewport" content="width=device-width" />
   <meta name="description" content="${props.description}">
   <head prefix="og: http://ogp.me/ns#">
   <meta property="og:type" content="article">
@@ -20,7 +21,7 @@ export const Layout = (props: SiteData) => html`
   <meta property="og:title" content="${props.title}">
   <meta property="og:image" content="${props.image}">
   <link rel="stylesheet" href="/static/styles.css"/>
-  <link rel="stylesheet" href="/static/prism.css"/>
+  <link rel="stylesheet" href="/static/highlight.css"/>
 </head>
 <body>
   <header>

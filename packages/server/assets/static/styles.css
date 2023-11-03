@@ -44,7 +44,7 @@ h1 { font-size: clamp(2rem, calc(2vw + 2rem), 3rem);}
 h2 { font-size: clamp(1.25rem, calc(2vw + 1.25rem), 2rem); }
 h3 { font-size: clamp(1.15rem, calc(2vw + 1.15rem), 1.5rem); }
 
-p, a, span:not(.token), blockquote, figcaption {
+p, a, span:not([class*="hljs-"]), blockquote, figcaption {
   font-family: var(--copy-family);
   font-weight: var(--copy-weight);
   color: var(--text-primary);
@@ -57,7 +57,6 @@ p {
 
 a {
   color: var(--text-secondary);
-  text-decoration: none;
 }
 
 a:hover, a:focus { text-decoration: underline; border: none; outline: none;}
@@ -74,7 +73,7 @@ li {
   font-size: 1.2rem;
   font-family: var(--copy-family);
   font-weight: var(--copy-weight);
-  margin-bottom: clamp(.25rem, calc(0.5vw + .1rem), 1rem);
+  margin-bottom: clamp(.75rem, calc(0.5vw + .1rem), 1rem);
 }
 
 ol {
@@ -106,12 +105,19 @@ code > * {
   font-family: monospace !important;
 }
 
+pre {
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  overflow-y: scroll;
+}
+
 code:not(pre>code) {
-    background-color: #f2f2f2;
-    color: #263E52;
-    font-size: 1rem;
-    padding: 3px 5px;
-    border-radius: 5px;
+  background-color: #f2f2f2;
+  color: #263E52;
+  font-size: 1rem;
+  padding: 3px 5px;
+  border-radius: 5px;
 }
 
 blockquote {

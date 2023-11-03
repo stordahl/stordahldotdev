@@ -18,7 +18,7 @@ The solution for this particular animation I'm looking to achieve, must meet the
 
 In researching approaches to this animation, I thought there might be a way to use Javascript to manipulate a CSS gradient that could create this drawing effect. I realized that, since I'm working with Svelte, I can make use of its reactivity to make that solution pretty concise. Then I stumbled upon a CSS feature I had never heard of and it happened to be the perfect tool for this approach: the Conic Gradient. A conic gradient is similar to a radial gradient, with the difference being that a conic gradient's color transitions rotate around a center point (similar to the motion of a clock), rather than radiating from the center, like a radial gradient does. Below is a screenshot of the MDN demo of a conic gradient, to help visualize this.
 
-![A screenshot of the MDN playground for conic gradients](../../../../static/images/conic-gradient-1.png)
+![A screenshot of the MDN playground for conic gradients](/images/conic-gradient-1.png)
 
 ## Markup
 

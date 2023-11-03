@@ -15,7 +15,7 @@ The first step to this simple iOS development setup is to install and configure 
 Once that is enabled, you can plug your test iPhone into the desktop machine that is running Safari, then open the 'Develop' menu. In the second section of this menu you will see a list of devices that the developer tools have access to, including the iPhone you've just plugged in. Make sure the application you are testing is open in the Safari browser on the iPhone, and then you should be able to select that window in the developer tools in the desktop Safari.
 
 <figure>
-	<img src="/images/ios-dev-1.png" alt="A screenshot of the Safari Develop menu showing a connect mobile device available in Dev Tools">
+	<img src="/static/images/ios-dev-1.png" alt="A screenshot of the Safari Develop menu showing a connect mobile device available in Dev Tools">
 	<figcaption>A screenshot of the Safari Develop menu showing a connect mobile device available in Dev Tools</figcaption>
 </figure>
 

@@ -65,6 +65,15 @@ ul:not(article ul) {
   list-style: none;
 }
 
+ul.list {
+  list-style: disc;
+  color: var(--blue);
+  margin: 0;
+  padding: 0;
+  padding-left: 1rem;
+  margin: 25px 0;
+}
+
 article ul {
   padding-left: revert;
 }

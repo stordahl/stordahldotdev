@@ -8,10 +8,23 @@ export const HomePage = (props: { site_data: SiteData; }) => {
       <h1 style="margin-top: 50px;">Hi, I'm Jacob.</h1>
       <p>I'm a Software Engineer, obsessed with building tools and infrastructure that enable front-end teams to be productive. Currently, I'm building radical ecommerce user experiences, and developer tools at <a class="out" target="_blank" rel="noreferrer" href="http://stylitics.com">Stylitics.</a></p>
       <p>Sometimes <a href="/writing">I write about the web</a>, and the stuff we use to build it.</p>
-      <p>More rarely, I talk about it.</p>
+      <p>More rarely, <a href="/talks">I talk about it</a>.</p>
       <p  style="margin-bottom: 50px;">Check out some of my open source work <a class="out" target="_blank" rel="noreferrer" href="https://github.com/stordahl">here</a>.
     You can reach me on <a class="out" target="_blank" rel="noreferrer" href="https://twitter.com/stordahldotdev">twitter</a> or shoot me an <a class="out" href="mailto:jacob@stordahl.dev">email</a>. <span class="strike"> I'm currently available for hire.</span>
     </p>
+    </Layout>
+  );
+};
+
+export const TalksPage = (props: { site_data: SiteData; }) => {
+  return (
+    <Layout {...props.site_data}>
+      <h1>Talks</h1> 
+      <ul>
+        <li><a href="https://www.youtube.com/watch?v=U3rS-nOiN6k">Svelte Summit, 2023</a> </li>
+        <li><a href="https://www.compressed.fm/episode/99">Compressed FM, 2022</a></li>
+        <li><a href="https://sveltesirens.dev/events/sveltekit-sanityio-a-match-made-in-heaven">Svelte Sirens, 2022</a></li>
+      </ul>
     </Layout>
   );
 };

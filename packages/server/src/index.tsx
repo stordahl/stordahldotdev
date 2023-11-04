@@ -1,11 +1,12 @@
 import { Hono } from "hono";
 import { serveStatic } from 'hono/cloudflare-workers';
-import { HomePage, WritingPage, ArticlePage } from "./components";
+import { HomePage, WritingPage, ArticlePage, TalksPage } from "./components";
 import { build_article_page_data, parse_frontmatter, remove_frontmatter } from "./data";
 
 const app = new Hono();
 
-app.get('/static/*', serveStatic({ root: './' }))
+app.get('/static/*', serveStatic({ root: './' }));
+app.get('/favicon.png', serveStatic({ path: './favicon.png' }));
 
 app.get('/', async (c) => {
   const props = {
@@ -17,6 +18,18 @@ app.get('/', async (c) => {
   }
 
   return c.html(<HomePage {...props} />);
+});
+
+app.get('/talks', async (c) => {
+  const props = {
+    site_data: {
+      title: 'Talks | Jacob Stordahl',
+      description: 'This is a description',
+      image: 'https://example.com/image.png',
+    },
+  }
+
+  return c.html(<TalksPage {...props} />);
 });
 
 app.get('/writing', async (c) => {

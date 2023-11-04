@@ -12,6 +12,7 @@ export const Layout = (props: SiteData) => html`
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" href="/favicon.png">
   <title>${props.title}</title>
   <meta name="viewport" content="width=device-width" />
   <meta name="description" content="${props.description}">
@@ -29,6 +30,7 @@ export const Layout = (props: SiteData) => html`
 	  <nav class="print-hide">
 		  <a href="/">home</a>
 		  <a href="/writing">writing</a>
+      <a href="/talks">talks</a>
 	  </nav>
   </header>
   <main>${props.children}</main>

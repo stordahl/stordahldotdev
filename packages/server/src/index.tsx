@@ -24,7 +24,7 @@ app.get('/talks', async (c) => {
   const props = {
     site_data: {
       title: 'Talks | Jacob Stordahl',
-      description: 'This is a description',
+      description: 'A list of my talks and podcasts',
       image: 'https://example.com/image.png',
     },
   }
@@ -36,7 +36,7 @@ app.get('/writing', async (c) => {
   const props = {
     site_data: {
       title: 'Writing | Jacob Stordahl',
-      description: 'This is a description',
+      description: 'A collection of writing on JavaScript and the web',
       image: 'https://example.com/image.png',
     },
   }
@@ -52,7 +52,7 @@ app.get('/writing/:slug', async (c) => {
   const props = {
     site_data: {
       title: metadata.title,
-      description: 'This is a description',
+      description: metadata.title,
       image: 'https://example.com/image.png',
     },
     metadata,

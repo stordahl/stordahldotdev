@@ -209,3 +209,56 @@ blockquote {
       align-items: center;
     }
   }
+
+  /* Resume Page */
+  #resume .mobile-hide {
+    display: none;
+  }
+
+  #resume.article-wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  #resume .pfp {
+    width: 100%; 
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto 25px;
+    border-radius: 50%;
+    outline: 3px dashed var(--blue);
+    outline-offset: 3px;
+  }
+
+  #resume section {
+    margin-bottom: 30px;
+  }
+
+  #resume .employ-article h3 {
+    margin-bottom: 10px;
+  }
+
+  #resume aside h2 {
+    margin-bottom: 5px;
+  }
+
+  #resume p {
+    margin-bottom: 2px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    #resume .mobile-hide {
+      display: unset;
+    }
+
+    #resume.article-wrap {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  @media print {
+    #resume .print-hide {
+      display: none;
+    }
+  }

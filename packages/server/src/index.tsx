@@ -1,6 +1,10 @@
 import { Hono } from "hono";
 import { serveStatic } from 'hono/cloudflare-workers';
-import { HomePage, WritingPage, ArticlePage, TalksPage } from "./components";
+import ArticlePage from "./pages/article";
+import HomePage from "./pages/home";
+import WritingPage from "./pages/writing";
+import ResumePage from "./pages/resume";;
+import TalksPage from "./pages/talks";
 import { build_article_page_data, parse_frontmatter, remove_frontmatter } from "./data";
 
 const app = new Hono();
@@ -30,6 +34,18 @@ app.get('/talks', async (c) => {
   }
 
   return c.html(<TalksPage {...props} />);
+});
+
+app.get('/resume', async (c) => {
+  const props = {
+    site_data: {
+      title: 'Resume | Jacob Stordahl',
+      description: 'My resume',
+      image: 'https://example.com/image.png',
+    },
+  }
+
+  return c.html(<ResumePage {...props} />);
 });
 
 app.get('/writing', async (c) => {

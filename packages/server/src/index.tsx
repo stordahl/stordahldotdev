@@ -1,4 +1,5 @@
 import { Hono } from "hono";
+import { cache } from 'hono/cache';
 import { serveStatic } from 'hono/cloudflare-workers';
 import ArticlePage from "./pages/article";
 import HomePage from "./pages/home";
@@ -8,6 +9,8 @@ import TalksPage from "./pages/talks";
 import { build_article_page_data, parse_frontmatter, remove_frontmatter } from "./data";
 
 const app = new Hono();
+
+app.get('*', cache({ cacheName: 'stordahldotdev-server', cacheControl: 'max-age=3600' }));
 
 app.get('/static/*', serveStatic({ root: './' }));
 app.get('/favicon.png', serveStatic({ path: './favicon.png' }));
@@ -61,7 +64,6 @@ app.get('/writing', async (c) => {
 });
 
 app.get('/writing/:slug', async (c) => {
-
   const raw = await build_article_page_data(c.env?.GH_TOKEN as string, c.req.param("slug"))
   const metadata = parse_frontmatter(raw!);
 
@@ -77,6 +79,5 @@ app.get('/writing/:slug', async (c) => {
 
   return c.html(<ArticlePage {...props} />);
 });
-
 
 export default app

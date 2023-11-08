@@ -4,7 +4,7 @@ date: "2023-11-08"
 status: published 
 ---
 
-Recently, I realized the workflow I had built for my personal blog, was causing me to not want to write. Originally, I had built this site as a way to dive into learning about [SvelteKit](htts://kit.svelte.dev) and it's application model. While I still love SvelteKit, I started to feel that it's just too much infrastructure for a simple [Markdown}(https://en.wikipedia.org/wiki/Markdown) blog. This led me to start looking at different solutions that would allow me to do two things; simplify the system, and learn something new. 
+Recently, I realized the workflow I had built for my personal blog, was causing me to not want to write. Originally, I had built this site as a way to dive into learning about [SvelteKit](htts://kit.svelte.dev) and it's application model. While I still love SvelteKit, I started to feel that it's just too much infrastructure for a simple [Markdown](https://en.wikipedia.org/wiki/Markdown) blog. This led me to start looking at different solutions that would allow me to do two things; simplify the system, and learn something new. 
 
 ## Enter Hono
 

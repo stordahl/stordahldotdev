@@ -18,6 +18,7 @@ body {
   --heading-family: 'Helvetica Neue', sans-serif;
   --heading-weight: 900;
   --copy-family: 'Helvetica Neue', sans-serif;
+  --copy-size: clamp(1rem, calc(.5vw + 1rem), 1.2rem);
   --copy-weight: 500;
 
 	/* Dynamic Colors */
@@ -52,7 +53,7 @@ p, a, span:not([class*="hljs-"]), blockquote, figcaption {
 
 p {
   margin-bottom: 20px;
-  font-size: clamp(1rem, calc(.5vw + 1rem), 1.2rem);
+  font-size: var(--copy-size);
 }
 
 a {

@@ -33,6 +33,10 @@ main {
   width: clamp(380px, calc(85vw + 5px), 750px);
 }
 
+main:has(#resume) {
+  width: clamp(380px, calc(85vw + 5px), 920px);
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading-family);
   font-weight: var(--heading-weight);

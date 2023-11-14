@@ -14,7 +14,8 @@ export default function ResumePage(props: { site_data: SiteData; }) {
             <ul>
               <li>Core contributor to Stylitics front-end product suite.</li>
               <li>Contributed to formalizing our architecture for Third Party JS widgets.</li>
-              <li>Lead our migration to modern tooling like Vite and PNPM.</li>
+              <li>Lead our migration to modern tooling like Vite, Vitest, and PNPM.</li>
+              <li>Designed, Built, and Deloyed an internal Error Reporting Cloud Service using Google Cloud Functions and Cloud Logger</li>
               <li>Reduced CI compute time by over 75%.</li>
               <li>Designed and instituted git based deployment strategies.</li>
               <li>Contribute to our internal and external technical documentation.</li>

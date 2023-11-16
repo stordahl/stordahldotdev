@@ -14,6 +14,7 @@ app.get('*', cache({ cacheName: 'stordahldotdev-server', cacheControl: 'max-age=
 
 app.get('/static/*', serveStatic({ root: './' }));
 app.get('/favicon.png', serveStatic({ path: './favicon.png' }));
+app.get('/favicon-dark.png', serveStatic({ path: './favicon-dark.png' }));
 
 app.get('/', async (c) => {
   const props = {

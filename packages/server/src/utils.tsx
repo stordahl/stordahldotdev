@@ -12,7 +12,8 @@ export const Layout = (props: SiteData) => html`
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" href="/favicon.png">
+  <link href="/favicon.png" rel="icon" media="(prefers-color-scheme: light)" />
+  <link href="/favicon-dark.png" rel="icon" media="(prefers-color-scheme: dark)" />
   <title>${props.title}</title>
   <meta name="viewport" content="width=device-width" />
   <meta name="description" content="${props.description}">

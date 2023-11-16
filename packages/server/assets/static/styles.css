@@ -18,7 +18,7 @@ body {
   --heading-family: 'Helvetica Neue', sans-serif;
   --heading-weight: 900;
   --copy-family: 'Helvetica Neue', sans-serif;
-  --copy-size: clamp(1rem, calc(.5vw + 1rem), 1.2rem);
+  --copy-size: clamp(1rem, calc(.5vw + 1rem), 1.1rem);
   --copy-weight: 500;
 
 	/* Dynamic Colors */
@@ -58,6 +58,7 @@ p, a, span:not([class*="hljs-"]), blockquote, figcaption {
 p {
   margin-bottom: 20px;
   font-size: var(--copy-size);
+  line-height: 1.6rem;
 }
 
 a {
@@ -137,9 +138,14 @@ code:not(pre>code) {
 blockquote {
   margin: 3rem auto;
   border-left: 3px solid var(--text-secondary);
-  font-size: clamp(1rem, calc(0.5vw + 1.2rem), 1.6rem);
+  font-size: clamp(1rem, calc(0.5vw + 1.2rem), 1.8rem);
   padding-left: 1.2rem;
   font-style: italic;
+}
+
+blockquote p {
+  font-size: clamp(1rem, calc(0.5vw + 1.2rem), 1.4rem);
+  line-height: 1.8rem;
 }
 
 .strike {
@@ -186,7 +192,9 @@ blockquote {
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    padding: clamp(12px, 3vw, 30px) clamp(1.2rem, 3vw, 150px);
+    padding: clamp(12px, 3vw, 30px) 1rem;
+    margin: auto;
+    width: clamp(380px, calc(85vw + 5px), 750px);
   }
 
   footer {
@@ -265,5 +273,19 @@ blockquote {
   @media print {
     #resume .print-hide {
       display: none;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      --text-primary: #e0e3f5;
+      --text-secondary: var(--text-primary);
+      --bg: #191b20;
+      --copy-weight: 400;
+    }
+
+    code:not(pre>code) {
+      background-color: #333741;    
+      color: #f2f2f2;
     }
   }

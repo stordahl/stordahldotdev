@@ -45,9 +45,9 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
-h1 { font-size: clamp(2rem, calc(2vw + 2rem), 3rem);}
-h2 { font-size: clamp(1.25rem, calc(2vw + 1.25rem), 2rem); }
-h3 { font-size: clamp(1.15rem, calc(2vw + 1.15rem), 1.5rem); }
+h1 { font-size: clamp(2rem, calc(2vw + 2rem), 2.3rem);}
+h2 { font-size: clamp(1.25rem, calc(2vw + 1.25rem), 1.7rem); }
+h3 { font-size: clamp(1.15rem, calc(2vw + 1.15rem), 1.3rem); }
 
 p, a, span:not([class*="hljs-"]), blockquote, figcaption {
   font-family: var(--copy-family);
@@ -86,7 +86,7 @@ article ul {
 
 li {
   color: var(--text-primary);
-  font-size: 1.2rem;
+  font-size: var(--copy-size);
   font-family: var(--copy-family);
   font-weight: var(--copy-weight);
   margin-bottom: clamp(.75rem, calc(0.5vw + .1rem), 1rem);
@@ -96,6 +96,9 @@ ol {
     color: var(--text-primary);
     margin-left: 1.2rem;
 }
+ ul, ol {
+   margin-bottom: 20px;
+ }
 
 img {
   max-width: 100%;

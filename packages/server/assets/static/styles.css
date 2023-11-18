@@ -244,7 +244,7 @@ blockquote p {
     height: auto;
     margin: 0 auto 25px;
     border-radius: 50%;
-    outline: 3px dashed var(--blue);
+    outline: 3px dashed var(--text-secondary);
     outline-offset: 3px;
   }
 
@@ -258,10 +258,6 @@ blockquote p {
 
   #resume aside h2 {
     margin-bottom: 5px;
-  }
-
-  #resume p {
-    margin-bottom: 2px;
   }
 
   @media screen and (min-width: 1000px) {

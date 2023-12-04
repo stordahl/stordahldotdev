@@ -13,9 +13,9 @@ export default function HomePage(props: { site_data: SiteData; }) {
 
     <h2 style="font-size: var(--copy-size);">Writing</h2>
     <ul>
+        <li><a href="/writing/my-ai-workflow">How I'm Using AI as a Software Engineer</a></li>
         <li><a href="/writing/on-opinions">On Opinions</a></li>
         <li><a href="/writing/exploring-hono">Exploring Hono</a></li>
-        <li><a href="/writing/error-handling-decorators">Simplify Error Handling with TypeScript Decorators</a></li>
     </ul>
     </Layout>
   );

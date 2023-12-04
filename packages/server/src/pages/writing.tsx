@@ -5,6 +5,7 @@ export default function WritingPage(props: { site_data: SiteData; }) {
     <Layout {...props.site_data}>
       <h1>Writing</h1> 
       <ul>
+        <li><a href="/writing/on-opinions">On Opinions</a></li>
         <li><a href="/writing/exploring-hono">Exploring Hono</a></li>
         <li><a href="/writing/error-handling-decorators">Simplify Error Handling with TypeScript Decorators</a></li>
         <li><a href="/writing/google-cloud-function-vitest">Testing Google Cloud Functions with Vitest</a></li>

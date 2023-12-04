@@ -9,12 +9,12 @@ export default function ResumePage(props: { site_data: SiteData; }) {
           <h2>Past Employment</h2>
           <section>
             <h3>Software Engineer, Stylitics Inc.</h3>
-            <p>New York, NY</p>
-            <p>January 2022 to Present</p>
+            <p>New York, NY<br/>January 2022 to Present</p>
             <ul>
               <li>Core contributor to Stylitics front-end product suite.</li>
               <li>Contributed to formalizing our architecture for Third Party JS widgets.</li>
-              <li>Lead our migration to modern tooling like Vite and PNPM.</li>
+              <li>Lead our migration to modern tooling like Vite, Vitest, and PNPM.</li>
+              <li>Designed, Built, and Deloyed an internal Error Reporting Cloud Service using Google Cloud Functions and Cloud Logger</li>
               <li>Reduced CI compute time by over 75%.</li>
               <li>Designed and instituted git based deployment strategies.</li>
               <li>Contribute to our internal and external technical documentation.</li>
@@ -22,8 +22,7 @@ export default function ResumePage(props: { site_data: SiteData; }) {
           </section>
           <section>
             <h3>Web & Digital Media Manager, Hennepin Technical College</h3>
-            <p>Minneapolis, MN</p>
-            <p>June 2021 to January 2022</p>
+            <p>Minneapolis, MN<br/>June 2021 to January 2022</p>
             <ul>
               <li>Created consistent structural input format to maintain site continuity by authoring and implementing best-practices for designers and content providers.</li>
               <li>Collected and responded to user feedback through iterative improvements to site structure and content.</li>
@@ -34,8 +33,7 @@ export default function ResumePage(props: { site_data: SiteData; }) {
           </section>
           <section>
             <h3>Freelance Web Developer, Self Employed</h3>
-            <p>Minneapolis, MN</p>
-            <p>December 2019 to June 2021</p>
+            <p>Minneapolis, MN<br/>December 2019 to June 2021</p>
             <ul>
               <li>Planned website development, converting mockups into usable web presence with HTML, JavaScript, AJAX and JSON coding.</li>
               <li>Provided front-end website development using WordPress, Hubspot and other editing software.</li> 

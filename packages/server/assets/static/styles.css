@@ -9,6 +9,7 @@ body {
   overflow-x: hidden;
   font-size: 14px;
 	background-color: var(--bg);
+  fill: currentColor;
 
   --white: #ffffff;
   --black: #2A2E38;
@@ -18,6 +19,7 @@ body {
   --heading-family: 'Helvetica Neue', sans-serif;
   --heading-weight: 900;
   --copy-family: 'Helvetica Neue', sans-serif;
+  --copy-size: clamp(1rem, calc(.5vw + 1rem), 1.1rem);
   --copy-weight: 500;
 
 	/* Dynamic Colors */
@@ -32,6 +34,10 @@ main {
   width: clamp(380px, calc(85vw + 5px), 750px);
 }
 
+main:has(#resume) {
+  width: clamp(380px, calc(85vw + 5px), 920px);
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading-family);
   font-weight: var(--heading-weight);
@@ -40,9 +46,9 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
-h1 { font-size: clamp(2rem, calc(2vw + 2rem), 3rem);}
-h2 { font-size: clamp(1.25rem, calc(2vw + 1.25rem), 2rem); }
-h3 { font-size: clamp(1.15rem, calc(2vw + 1.15rem), 1.5rem); }
+h1 { font-size: clamp(2rem, calc(2vw + 2rem), 2.3rem);}
+h2 { font-size: clamp(1.25rem, calc(2vw + 1.25rem), 1.7rem); }
+h3 { font-size: clamp(1.15rem, calc(2vw + 1.15rem), 1.3rem); }
 
 p, a, span:not([class*="hljs-"]), blockquote, figcaption {
   font-family: var(--copy-family);
@@ -52,7 +58,8 @@ p, a, span:not([class*="hljs-"]), blockquote, figcaption {
 
 p {
   margin-bottom: 20px;
-  font-size: clamp(1rem, calc(.5vw + 1rem), 1.2rem);
+  font-size: var(--copy-size);
+  line-height: 1.6rem;
 }
 
 a {
@@ -79,7 +86,8 @@ article ul {
 }
 
 li {
-  font-size: 1.2rem;
+  color: var(--text-primary);
+  font-size: var(--copy-size);
   font-family: var(--copy-family);
   font-weight: var(--copy-weight);
   margin-bottom: clamp(.75rem, calc(0.5vw + .1rem), 1rem);
@@ -89,6 +97,9 @@ ol {
     color: var(--text-primary);
     margin-left: 1.2rem;
 }
+ ul, ol {
+   margin-bottom: 20px;
+ }
 
 img {
   max-width: 100%;
@@ -132,23 +143,28 @@ code:not(pre>code) {
 blockquote {
   margin: 3rem auto;
   border-left: 3px solid var(--text-secondary);
-  font-size: clamp(1rem, calc(0.5vw + 1.2rem), 1.6rem);
+  font-size: clamp(1rem, calc(0.5vw + 1.2rem), 1.8rem);
   padding-left: 1.2rem;
   font-style: italic;
+}
+
+blockquote p {
+  font-size: clamp(1rem, calc(0.5vw + 1.2rem), 1.4rem);
+  line-height: 1.8rem;
 }
 
 .strike {
   text-decoration: line-through;
 }
 
-.out::after
-{
+.out::after {
   content: "";
-    width: 8px;
-    height: 8px;
-    margin-left: 0px;
-    margin-bottom: 1.5%;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
+  width: 8px;
+  height: 8px;
+  margin-left: 3px;
+  margin-bottom: 0.5%;
+  background-color: var(--bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='black' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -181,7 +197,9 @@ blockquote {
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    padding: clamp(12px, 3vw, 30px) clamp(1.2rem, 3vw, 150px);
+    padding: clamp(12px, 3vw, 30px) 1rem;
+    margin: auto;
+    width: clamp(380px, calc(85vw + 5px), 750px);
   }
 
   footer {
@@ -227,7 +245,7 @@ blockquote {
     height: auto;
     margin: 0 auto 25px;
     border-radius: 50%;
-    outline: 3px dashed var(--blue);
+    outline: 3px dashed var(--text-secondary);
     outline-offset: 3px;
   }
 
@@ -243,10 +261,6 @@ blockquote {
     margin-bottom: 5px;
   }
 
-  #resume p {
-    margin-bottom: 2px;
-  }
-
   @media screen and (min-width: 1000px) {
     #resume .mobile-hide {
       display: unset;
@@ -260,5 +274,23 @@ blockquote {
   @media print {
     #resume .print-hide {
       display: none;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      --text-primary: #e0e3f5;
+      --text-secondary: var(--text-primary);
+      --bg: #191b20;
+      --copy-weight: 400;
+    }
+
+    code:not(pre>code) {
+      background-color: #333741;    
+      color: #f2f2f2;
+    }
+
+    .out:after {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
     }
   }

@@ -1,5 +1,5 @@
 ---
-title: How I'm Using AI as a Software Engineer 
+title: How I'm Using AI as a Software Engineer
 date: "2023-12-4"
 status: published
 ---
@@ -18,7 +18,7 @@ After using ChatGPT in my workflow for a few months, I started to really feel th
 
 A great place to start if you've never run models locally is [LM Studio](https://lmstudio.ai/) - a GUI application for searching, downloading, running, and chatting with any LLM available on HuggingFace (or a local.gguf file). LM Studio is cross platform and is very simple to get up and running with, making running local LLMs super accessible to the average user. Using LM Studio is also a great way to peak under the hood a bit with how these LLM's can be configured using temperature, inference parameters, pre-prompting and hardware settings. I've used LM Studio to create my own model configuration preset, specifically to assist in my daily dev work writing Svelte and TypeScript by tweaking some of the settings, and adding this pre-prompt...
 
-```text
+```
 You are a pair programming assistant knowledgeable about TypeScript, JavaScript, Svelte.js, SvelteKit, and the Web.
 ```
 
@@ -26,7 +26,7 @@ Another great feature of LM Studio is that the application can expose the LLM pr
 
 Running models locally with LM Studio is a great replacement for ChatGPT in the browser, however I want to avoid having extra applications open while I'm working if I can. This led me to [Ollama](https://ollama.ai/), a CLI for running and interacting with LLMs in your terminal. Similar to LM Studio, Ollama handles installing models, running models, and even exposing a local endpoint to be used in other applications. The main differences being, Ollama is a CLI, and it provides an API for creating customized models stored as text files. The customizations I mentioned above in LM Studio are all stored and managed within the [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) application. With Ollama, simply create a file named `Modelfile` and then use a declarative syntax to create a custom model configuration. For example, here's the LM Studio customization from earlier, represented as a `Modelfile`.
 
-```text
+```
 FROM mistral
 
 PARAMETER temperature 1

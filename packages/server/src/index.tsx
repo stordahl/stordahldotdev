@@ -6,7 +6,7 @@ import HomePage from "./pages/home";
 import WritingPage from "./pages/writing";
 import ResumePage from "./pages/resume";;
 import TalksPage from "./pages/talks";
-import { build_article_page_data, parse_frontmatter, remove_frontmatter } from "./data";
+import { build_article_page_data, parse_description, parse_frontmatter, remove_frontmatter } from "./data";
 
 const app = new Hono();
 
@@ -67,11 +67,12 @@ app.get('/writing', async (c) => {
 app.get('/writing/:slug', async (c) => {
   const raw = await build_article_page_data(c.env?.GH_TOKEN as string, c.req.param("slug"))
   const metadata = parse_frontmatter(raw!);
+  const description = parse_description(raw!);
 
   const props = {
     site_data: {
       title: metadata.title,
-      description: metadata.title,
+      description,
       image: 'https://example.com/image.png',
     },
     metadata,

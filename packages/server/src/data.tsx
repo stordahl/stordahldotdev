@@ -84,6 +84,11 @@ export function remove_frontmatter(markdown: string): string {
   return contentWithoutFrontmatter;
 }
 
+export function parse_description(markdown: string) {
+  const content = remove_frontmatter(markdown);
+  return content.slice(1, 154);
+}
+
 export function parse_markdown(raw_markdown: string) {
   const tokens = marked.lexer(raw_markdown);
   tokens.forEach(function( token ) {

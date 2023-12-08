@@ -15,7 +15,7 @@ export default function WritingPage(props: { site_data: SiteData; }) {
         <li><a href="/writing/drawn-border-animation-conic-gradient-svelte">Creating a Drawn Border Animation with Conic Gradient &amp; Svelte</a></li>
         <li><a href="/writing/limiting-cognitive-overload">Limiting Cognitive Overload</a></li>
         <li><a href="/writing/simple-ios-dev-setup">A Simple iOS Development setup</a></li>
-        <li><a href="/writing/fresh-work-machine">"Setting Up A Fresh Work Machine"</a></li>
+        <li><a href="/writing/fresh-work-machine">Setting Up A Fresh Work Machine</a></li>
         <li><a href="/writing/from-welder-to-software-engineer">From Welder to Software Engineer</a></li>
         <li><a href="/writing/master-to-main">Renaming your 'master' git branch to 'main'</a></li>
       </ul>

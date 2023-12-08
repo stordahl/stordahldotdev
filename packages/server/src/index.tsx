@@ -6,6 +6,7 @@ import HomePage from "./pages/home";
 import WritingPage from "./pages/writing";
 import ResumePage from "./pages/resume";;
 import TalksPage from "./pages/talks";
+import UsesPage from "./pages/uses";
 import { build_article_page_data, parse_description, parse_frontmatter, remove_frontmatter } from "./data";
 
 const app = new Hono();
@@ -80,6 +81,18 @@ app.get('/writing/:slug', async (c) => {
   }
 
   return c.html(<ArticlePage {...props} />);
+});
+
+app.get('/uses', async (c) => {
+  const props = {
+    site_data: {
+      title: 'Uses | Jacob Stordahl',
+      description: 'A list of the things I use to get my work done',
+      image: 'https://example.com/image.png',
+    },
+  }
+
+  return c.html(<UsesPage {...props} />);
 });
 
 export default app

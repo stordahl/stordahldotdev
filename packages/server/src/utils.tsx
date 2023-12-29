@@ -40,13 +40,7 @@ export const Layout = (props: SiteData) => html`
   <main>${props.children}</main>
   <footer>
     <div id="copyright">
-      <span>
-        © ${new Date().getFullYear()} Jacob Stordahl | 
-        <a href="https://github.com/stordahl">github</a> | 
-        <a href="https://twitter.com/stordahldotdev">twitter</a> | 
-        <a href="/resume">resume</a> | 
-        <a href="/uses">uses</a>
-      </span>
+      <span>© ${new Date().getFullYear()} Jacob Stordahl</span>
     </div>
   </footer>
 </body>

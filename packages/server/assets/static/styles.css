@@ -15,6 +15,8 @@ body {
 
   --white: #ffffff;
   --black: #2A2E38;
+  --light-grey: rgb(224, 226, 231);
+  --extra-light-grey: rgb(241 243 246);
   --blue: #1551d8;
   --light-blue: #7d9dff;
   --trans-bg: #ffffffd9;
@@ -24,6 +26,7 @@ body {
   --copy-family: var(--font-family);
   --copy-size: clamp(1rem, calc(.5vw + 1rem), 1.1rem);
   --copy-weight: 500;
+  --border: 1px solid var(--light-grey);
 
 	/* Dynamic Colors */
 	--text-primary: var(--black);
@@ -41,7 +44,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading-family);
   font-weight: var(--heading-weight);
   color: var(--text-secondary);
-  margin-bottom: clamp(5px, calc(5px + 1rem), 20px);
+  margin-bottom: clamp(5px, calc(5px + 0.5vw), 20px);
 
 }
 
@@ -168,8 +171,82 @@ blockquote p {
   margin-bottom: 40px;
 }
 
+.card {
+  border: var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.card a {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-decoration: none;
+}
+
+.card a:hover > h3 {
+  text-decoration: underline;
+}
+
+.card a > p {
+  color: var(--text-primary);
+  font-size: calc(var(--copy-size) * 0.8);
+  line-height: 16px;
+}
+
+.card * {
+  margin: 0;
+}
+
+.card .tags {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+.card .tags span {
+  font-size: calc(var(--copy-size) * 0.8);
+  background-color: var(--light-grey);
+  padding: 4px;
+  border-radius: 5px;
+}
+
+.links-row { 
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+.links-row a { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  color: var(--text-primary);
+  background-color: var(--extra-light-grey);
+  border-radius: 5px;
+}
+
+.links-row a svg {
+  width: 22px;
+}
+
 .strike {
   text-decoration: line-through;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-direction: column;
+}
+
+.mobile-hide {
+  display: none;
 }
 
 .out::after {
@@ -243,11 +320,17 @@ blockquote p {
     }
   }
 
-  /* Resume Page */
-  #resume .mobile-hide {
-    display: none;
+  @media screen and (min-width: 700px) {
+    .flex-row {
+      flex-direction: row;
+    }
+
+    .mobile-hide {
+      display: unset;
+    }
   }
 
+  /* Resume Page */
   #resume {
     display: flex;
     flex-direction: column;
@@ -310,6 +393,12 @@ blockquote p {
       --text-secondary: var(--text-primary);
       --bg: #191b20;
       --copy-weight: 400;
+      --light-grey: rgb(77, 78, 81);
+      --extra-light-grey: #373839;
+    }
+
+    img {
+      filter: grayscale(1) brightness(1.2);
     }
 
     code:not(pre>code) {

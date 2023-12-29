@@ -24,6 +24,12 @@ export default function Projects() {
 
 const projects: Project[] = [
   {
+    description: "Collect historical performance data on your products via Lighthouse CI & Github Actions",
+    url: "https://github.com/stordahl/datahog",
+    tech: ["javascript"],
+    title: "datahog",
+  },
+  {
     description: "A custom context menu for your Svelte Application",
     url: "https://github.com/stordahl/svelte-right-click",
     tech: ["svelte", "typescript"],

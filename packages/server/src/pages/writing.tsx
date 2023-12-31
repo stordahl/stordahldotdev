@@ -5,6 +5,7 @@ export default function WritingPage(props: { site_data: SiteData; }) {
     <Layout {...props.site_data}>
       <h1>Writing</h1> 
       <ul>
+        <li><a href="/writing/against-enums">My Case Against TypeScript Enums</a></li>
         <li><a href="/writing/my-ai-workflow">How I'm Using AI as a Software Engineer</a></li>
         <li><a href="/writing/on-opinions">On Opinions</a></li>
         <li><a href="/writing/exploring-hono">Exploring Hono</a></li>

@@ -132,7 +132,7 @@ pre {
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 20px;
-  overflow-y: scroll;
+  overflow-x: auto;
 }
 
 code:not(pre>code) {
@@ -262,6 +262,10 @@ blockquote p {
   background-size: contain;
   display: inline-block;
   white-space: nowrap;
+}
+
+.twitter-tweet.twitter-tweet-rendered {
+  margin: 10px auto;
 }
 
 	header span {

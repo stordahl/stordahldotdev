@@ -39,4 +39,4 @@ const Side = {
 } as const
 ```
 
-By usng an object literal, we maintain an interface that is valid JavaScript, and the const assertion provides the same type safety that an enum provides. After this experience, I'm going to be using object literals as a replacement for enums, and will push my team to do the same. Although, if you have a use case for enums that object literals don't solve, I'd love to hear about it, so [tweet at me](https://twitter.com/stordahldotdev)!
+By using an object literal, we maintain an interface that is valid JavaScript, and the const assertion provides the same type safety that an enum provides. After this experience, I'm going to be using object literals as a replacement for enums, and will push my team to do the same. Although, if you have a use case for enums that object literals don't solve, I'd love to hear about it, so [tweet at me](https://twitter.com/stordahldotdev)!

@@ -21,6 +21,11 @@ export default function RecentArticles() {
 
 const recent_articles: RecentArticle[] = [
   {
+    description: "I've come to believe that enums are an anti-pattern, and I'd like to explain why.",
+    slug: "against-enums",
+    title: "My Case Against TypeScript Enums",
+  },
+  {
     description: "When ChatGPT was first released in 2022, I was very skeptical of the tool and the underlying LLM technology that was (and still is) buzzing around the tech world.",
     slug: "my-ai-workflow",
     title: "How I'm Using AI as a Software Engineer",
@@ -29,11 +34,6 @@ const recent_articles: RecentArticle[] = [
     description: "I started properly teaching myself to code in the winter of 2019 - I was living the #VanLife, hating my job and desperately needing a drastic change",
     slug: "on-opinions",
     title: "On Opinions",
-  },
-  {
-    description: "Recently, I realized the workflow I had built for my personal blog, was causing me to not want to write.",
-    slug: "exploring-hono",
-    title: "Exploring Hono",
   },
 ];
 

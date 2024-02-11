@@ -2,10 +2,15 @@ import { html } from "hono/html";
 import { jsxRenderer } from "hono/jsx-renderer";
 
 export const renderer = jsxRenderer(
-	({ children, title }) => {
+	({ children, description, title }) => {
 		return (
 			<html lang="en">
 				<head>
+          <meta charset="UTF-8"/>
+          <meta name="viewport" content="width=device-width" />
+          <meta name="description" content={description}/>
+          <link href="/static/favicon.png" rel="icon" media="(prefers-color-scheme: light)" />
+          <link href="/static/favicon-dark.png" rel="icon" media="(prefers-color-scheme: dark)" />
 					<link href="/static/style.css" rel="stylesheet" />
 					<link rel="stylesheet" href="/static/highlight.css" />
 					<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,7 +23,7 @@ export const renderer = jsxRenderer(
 						href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
 						rel="stylesheet"
 					/>
-					<title>{title}</title>
+					<title>{title} | Jacob Stordahl</title>
 				</head>
 				<body>
 					<header>

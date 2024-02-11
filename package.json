@@ -3,6 +3,7 @@
   "scripts": {
     "dev": "vite --host",
     "build": "bun ./build.ts && cp -r ./public/* ./dist/",
+    "check": "bunx @biomejs/biome check --apply ./src",
     "preview": "wrangler pages dev dist",
     "deploy": "$npm_execpath run build && wrangler pages deploy dist"
   },
@@ -10,6 +11,7 @@
     "hono": "^4.0.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.5.3",
     "@cloudflare/workers-types": "^4.20240129.0",
     "@hono/vite-cloudflare-pages": "^0.2.4",
     "@hono/vite-dev-server": "^0.5.0",

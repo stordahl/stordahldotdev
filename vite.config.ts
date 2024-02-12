@@ -8,5 +8,6 @@ export default defineConfig({
     devServer({
       entry: 'src/index.tsx'
     })
-  ]
+  ],
+  assetsInclude: "**/*.md"
 })

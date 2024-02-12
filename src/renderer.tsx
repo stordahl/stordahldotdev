@@ -41,10 +41,13 @@ export const renderer = jsxRenderer(
 							<span>© {new Date().getFullYear()} Jacob Stordahl</span>
 						</div>
 					</footer>
-					{html`<script type="module" defer>
-            import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-            mermaid.initialize({ startOnLoad: true });
-          </script>`}
+					{html`
+            <script src="/static/prism.js"></script>
+            <script type="module" defer>
+              import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+              mermaid.initialize({ startOnLoad: true });
+            </script>
+          `}
 				</body>
 			</html>
 		);

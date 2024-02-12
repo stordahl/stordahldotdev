@@ -8,7 +8,8 @@
     "deploy": "$npm_execpath run build && wrangler pages deploy dist"
   },
   "dependencies": {
-    "hono": "^4.0.1"
+    "hono": "^4.0.1",
+    "marked": "^12.0.0"
   },
   "devDependencies": {
     "@biomejs/biome": "1.5.3",

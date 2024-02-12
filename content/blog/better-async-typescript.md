@@ -42,7 +42,7 @@ This feels a lot better, but remember the context from earlier; the consumer of 
 
 If you aren't extremely online, you may not know that Golang's error handling is a bit of a meme. However, the patterns established in Go are pretty simple, yet effective at solving this problem that is presented by TypeScript, and by extension JavaScript. In Go, the error _is a value_, and always gets returned from a function. Lets look at an example of a standard function call site in Go...
 
-```golang
+```go
 data, err := getData()
 if err != nil {
     return err

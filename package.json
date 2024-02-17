@@ -16,6 +16,7 @@
     "@cloudflare/workers-types": "^4.20240129.0",
     "@hono/vite-cloudflare-pages": "^0.2.4",
     "@hono/vite-dev-server": "^0.5.0",
+    "shiki": "^1.1.2",
     "vite": "^5.0.12",
     "wrangler": "^3.25.0"
   }

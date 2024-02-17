@@ -1,5 +1,5 @@
-
 import { marked } from "marked";
+import { getHighlighter } from "shiki";
 
 export interface ArticlePath {
   path: string;
@@ -127,5 +127,15 @@ export function parse_markdown(raw_markdown: string) {
   return marked.parser( tokens );
 }
 
-
+export async function highlight_code(html: string) {
+  const highlighter = await getHighlighter({
+  themes: ["catppuccin-mocha", "github-dark", "vesper"],
+  langs: ["javascript", "typescript", "html", "svelte", "go"],
+})
+  const codeBlockRegex = /<pre><code class="language-(.*?)">([\s\S]*?)<\/code><\/pre>/g;
+  return html.replace(codeBlockRegex, (_, language, code) => {
+    const highlightedCode = highlighter.codeToHtml(code, { lang: language, theme: "vesper" })
+    return highlightedCode;
+  });
+}
 

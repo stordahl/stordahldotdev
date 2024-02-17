@@ -42,7 +42,6 @@ export const renderer = jsxRenderer(
 						</div>
 					</footer>
 					{html`
-            <script src="/static/prism.js"></script>
             <script type="module" defer>
               import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
               mermaid.initialize({ startOnLoad: true });

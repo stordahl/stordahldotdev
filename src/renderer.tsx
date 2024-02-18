@@ -2,38 +2,36 @@ import { html } from "hono/html";
 import { jsxRenderer } from "hono/jsx-renderer";
 
 export const renderer = jsxRenderer(
-	({ children, description, title }) => {
+	({ children, cssFile, description, title }) => {
 		return (
 			<html lang="en">
 				<head>
           <meta charset="UTF-8"/>
           <meta name="viewport" content="width=device-width" />
           <meta name="description" content={description}/>
-          <link href="/static/favicon.png" rel="icon" media="(prefers-color-scheme: light)" />
-          <link href="/static/favicon-dark.png" rel="icon" media="(prefers-color-scheme: dark)" />
-					<link href="/static/style.css" rel="stylesheet" />
-					<link rel="stylesheet" href="/static/highlight.css" />
+          <link href="/static/favicon-dark.png" rel="icon" />
+					<link href="/static/css/style.css" rel="stylesheet" />
+          {cssFile && <link href={`/static/css/${cssFile}.css`} rel="stylesheet"/>}
 					<link rel="preconnect" href="https://fonts.googleapis.com" />
 					<link
 						rel="preconnect"
 						href="https://fonts.gstatic.com"
 						crossorigin=""
 					/>
-					<link
-						href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-						rel="stylesheet"
-					/>
+          <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
 					<title>{title} | Jacob Stordahl</title>
 				</head>
 				<body>
 					<header>
-						<span>jacob stordahl</span>
-						<nav class="print-hide">
-							<a href="/">home</a>
-							<a href="/writing">writing</a>
-							<a href="/talks">talks</a>
-							<a href="/systems">systems</a>
-						</nav>
+            <div>
+						  <span>stordahl.dev</span>
+						  <nav class="print-hide">
+							  <a href="/">home</a>
+							  <a href="/writing">writing</a>
+							  <a href="/talks">talks</a>
+							  <a href="/systems">systems</a>
+						  </nav>
+            </div>
 					</header>
 					<main>{children}</main>
 					<footer>

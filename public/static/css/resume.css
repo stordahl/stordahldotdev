@@ -1,0 +1,57 @@
+  #resume {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #resume .pfp {
+    width: 100%; 
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto 25px;
+    border-radius: 50%;
+    outline: 3px dashed var(--text-secondary);
+    outline-offset: 3px;
+    filter: grayscale(1) brightness(1.2);
+  }
+  
+  #resume .resume-header .name {
+    font-size: clamp(2rem, calc(2vw + 2rem), 2.3rem);
+    font-weight: var(--heading-weight);
+  }
+
+  #resume section {
+    margin-bottom: 30px;
+    width: 100%;
+  }
+
+  #resume article {
+    margin-bottom: 40px;
+  }
+
+  #resume article h3 {
+    margin-bottom: 10px;
+  }
+
+  #resume h2, 
+  #resume h3, 
+  #resume p {
+    text-align: center;
+  }
+
+  /* Media Queries */
+  @media screen and (min-width: 1000px) {
+    #resume .mobile-hide {
+      display: unset;
+    }
+
+    #resume.article-wrap {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  @media print {
+    #resume .print-hide {
+      display: none;
+    }
+  }

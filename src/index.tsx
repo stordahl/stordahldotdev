@@ -18,7 +18,7 @@ app.get("*", renderer);
 app.notFound(({ render }) => render(<NotFound />, { title: "Page Not Found" }));
 
 // home
-app.get("/", ({ render }) => render(<Home />, { title: "Home" }));
+app.get("/", ({ render }) => render(<Home />, { title: "Home", cssFile: "home" }));
 
 // resume
 app.get("/resume", ({ render }) => render(<Resume />, { title: "Resume" }));

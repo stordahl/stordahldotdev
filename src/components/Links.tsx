@@ -6,7 +6,7 @@ import TwitterIcon from './icons/TwitterIcon';
 
 export default function Links() {
   return (
-    <div class="links-row">
+    <div class="links card">
       {links.map(({ iconComponent: Component, url }) => <a href={url} target="_blank" rel="noreferrer"><Component/></a>)} 
     </div>
   );

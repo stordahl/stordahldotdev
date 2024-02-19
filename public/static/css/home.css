@@ -128,13 +128,34 @@
   opacity: 100%;
 }
 
-@media screen and (min-width: 600px) {
+@container (max-width: 475px) {
+  .writing h2 {
+    font-size: clamp(1.1rem, 5.5cqh, 1.6rem);
+  }
+
+  .writing h3 {
+    font-size: 4cqh;
+  }
+
+  .writing p {
+    font-size: 3.5cqh;
+    line-height: 3.6cqh;
+  }
+
+  .writing ul {
+    gap: 5cqh;
+  }
+}
+
+@media screen and (min-width: 500px) {
   main {
     grid-template-areas: 
       "intro intro" 
       "pfp links" 
-      "location projects"
-      "other projects";
+      "writing writing"
+      "writing writing"
+      "location other"
+      "projects projects";
   }
 }
 

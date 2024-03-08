@@ -2,12 +2,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "bun ./build.ts && cp -r ./public/* ./dist/",
+    "build": "bun vite build && cp -r ./public/* ./dist/",
     "check": "bunx @biomejs/biome check --apply ./src",
     "preview": "wrangler pages dev dist",
     "deploy": "$npm_execpath run build && wrangler pages deploy dist"
   },
   "dependencies": {
+    "@hono/vite-ssg": "^0.1.0",
     "hono": "^4.0.1",
     "marked": "^12.0.0"
   },
@@ -17,7 +18,7 @@
     "@hono/vite-cloudflare-pages": "^0.2.4",
     "@hono/vite-dev-server": "^0.5.0",
     "shiki": "^1.1.2",
-    "vite": "^5.0.12",
+    "vite": "^5.1.5",
     "wrangler": "^3.25.0"
   }
 }

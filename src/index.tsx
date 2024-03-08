@@ -31,10 +31,13 @@ app.get(
   "/systems/:id", 
   ssgParams(async () => {
     const data = await get_systems_articles();
-    return data.map(({ path }) => ({ id: path }))
+    return data.map(({ path }) => ({ id: path.substring(1) }))
   }),
-  async ({ render, req }) => {
-    const article = await get_systems_article(req.param("id"));
+  async ({ notFound, render, req }) => {
+    const id = req.param("id");
+    if(id.includes(":")) return;
+    const article = await get_systems_article(id);
+    if (!article) return notFound();
     return render(<Article {...article} />, { title: article.title })
   }
 );
@@ -53,10 +56,13 @@ app.get(
   "/writing/:id", 
   ssgParams(async () => {
     const data = await get_blog_articles();
-    return data.map(({ path }) => ({ id: path }))
+    return data.map(({ path }) => ({ id: path.substring(1) }))
   }),
-  async ({ render, req }) => {
-    const article = await get_blog_article(req.param("id"));
+  async ({ notFound, render, req }) => {
+    const id = req.param("id");
+    if(id.includes(":")) return;
+    const article = await get_blog_article(id);
+    if (!article) return notFound();
     return render(<Article {...article} />, { title: article.title })
   }
 );

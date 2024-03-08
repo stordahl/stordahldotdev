@@ -38,7 +38,7 @@ app.get(
     if(id.includes(":")) return;
     const article = await get_systems_article(id);
     if (!article) return notFound();
-    return render(<Article {...article} />, { title: article.title })
+    return render(<Article {...article} />, { title: article.title, loadMermaid: true })
   }
 );
 

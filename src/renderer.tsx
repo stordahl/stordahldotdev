@@ -2,7 +2,7 @@ import { html } from "hono/html";
 import { jsxRenderer } from "hono/jsx-renderer";
 
 export const renderer = jsxRenderer(
-	({ children, cssFile, description, title }) => {
+	({ children, cssFile, description, title, loadMermaid = false }) => {
 		return (
 			<html lang="en">
 				<head>
@@ -12,13 +12,6 @@ export const renderer = jsxRenderer(
           <link href="/static/favicon-dark.png" rel="icon" />
 					<link href="/static/css/style.css" rel="stylesheet" />
           {cssFile && <link href={`/static/css/${cssFile}.css`} rel="stylesheet"/>}
-					<link rel="preconnect" href="https://fonts.googleapis.com" />
-					<link
-						rel="preconnect"
-						href="https://fonts.gstatic.com"
-						crossorigin=""
-					/>
-          <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
 					<title>{title} | Jacob Stordahl</title>
 				</head>
 				<body>
@@ -37,8 +30,8 @@ export const renderer = jsxRenderer(
 							<span>© {new Date().getFullYear()} Jacob Stordahl</span>
 						</div>
 					</footer>
-					{html`
-            <script type="module" defer>
+					{loadMermaid && html`
+            <script type="module" async defer>
               import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
               mermaid.initialize({ startOnLoad: true });
             </script>

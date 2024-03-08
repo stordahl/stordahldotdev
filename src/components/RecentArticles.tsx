@@ -1,22 +1,21 @@
 
 export default function RecentArticles() {
   return (
-    <div class="card writing">
+    <>
       <h2>Writing</h2>
       <ul>
         {recent_articles.map(({ description, slug, title }) => {
           return (
-            <li>
+            <li class="card">
               <a href={`/writing/${slug}`}>
                 <h3>{title}</h3>
                 <p>{description}</p>
-                <p class="read-more">Read More</p>
               </a>
             </li>
           );
         })}
       </ul>
-    </div>
+    </>
   );
 };
 

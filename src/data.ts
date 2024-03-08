@@ -134,7 +134,7 @@ export async function highlight_code(html: string) {
 })
   const codeBlockRegex = /<pre><code class="language-(.*?)">([\s\S]*?)<\/code><\/pre>/g;
   return html.replace(codeBlockRegex, (_, language, code) => {
-    const highlightedCode = highlighter.codeToHtml(code, { lang: language, theme: "vesper" })
+    const highlightedCode = highlighter.codeToHtml(code, { lang: language, theme: "github-dark" })
     return highlightedCode;
   });
 }

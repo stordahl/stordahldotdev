@@ -23,15 +23,13 @@ export const renderer = jsxRenderer(
 				</head>
 				<body>
 					<header>
-            <div>
-						  <span>stordahl.dev</span>
-						  <nav class="print-hide">
-							  <a href="/">home</a>
-							  <a href="/writing">writing</a>
-							  <a href="/talks">talks</a>
-							  <a href="/systems">systems</a>
-						  </nav>
-            </div>
+						<span>stordahl.dev</span>
+						<nav class="print-hide">
+						  <a href="/">home</a>
+							<a href="/writing">writing</a>
+							<a href="/talks">talks</a>
+							<a href="/systems">systems</a>
+						</nav>
 					</header>
 					<main>{children}</main>
 					<footer>

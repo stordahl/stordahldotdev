@@ -1,4 +1,4 @@
-export default function Talks() {
+export function Talks() {
   return (
     <>
       <h1>Talks</h1> 
@@ -10,4 +10,9 @@ export default function Talks() {
       </ul>
     </>
   );
+};
+
+export const TalksMeta = {
+  description: "A list of talks I've given, and podcasts I've been a guest on",
+  title: "Talks" 
 };

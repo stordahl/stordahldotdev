@@ -1,4 +1,4 @@
-export default function NotFound() {
+export function NotFound() {
   return (
     <div style="display: flex; flex-direction: column; align-items: center">
       <h1>404</h1> 
@@ -7,3 +7,5 @@ export default function NotFound() {
     </div>
   );
 };
+
+export const NotFoundMeta = { title: "Page Not Found" };

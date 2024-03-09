@@ -1,4 +1,4 @@
-export default function Writing() {
+export function Writing() {
   return (
     <>
       <h1>Writing</h1> 
@@ -24,3 +24,9 @@ export default function Writing() {
     </>
   );
 };
+
+export const WritingMeta = {
+  description: "A collection of my writing about Software Engineering and the Web",
+  title: "Writing" 
+};
+

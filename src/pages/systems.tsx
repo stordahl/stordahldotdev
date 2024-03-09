@@ -1,4 +1,4 @@
-export default function Systems() {
+export function Systems() {
   return (
     <>
       <h1>Systems</h1> 
@@ -8,4 +8,9 @@ export default function Systems() {
       </ul>
     </>
   );
+};
+
+export const SystemsMeta = {
+  description: "A collection of case studies focused on system design work I've contributed to.",
+  title: "Systems" 
 };

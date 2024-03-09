@@ -1,30 +1,30 @@
 import { Hono } from "hono";
 import { ssgParams } from "hono/ssg";
 import { renderer } from "./renderer";
-import Article from "./pages/article";
-import Home from "./pages/home";
-import NotFound from "./pages/404";
-import Resume from "./pages/resume";
-import Systems from "./pages/systems";
-import Talks from "./pages/talks";
-import Uses from "./pages/uses";
-import Writing from "./pages/writing";
+import { Article, createArticleMeta } from "./pages/article";
+import { Home, HomeMeta } from "./pages/home";
+import { NotFound, NotFoundMeta } from "./pages/404";
+import { Resume, ResumeMeta } from "./pages/resume";
+import { Systems, SystemsMeta } from "./pages/systems";
+import { Talks, TalksMeta } from "./pages/talks";
+import { Uses, UsesMeta } from "./pages/uses";
+import { Writing, WritingMeta } from "./pages/writing";
 import { get_blog_articles, get_blog_article, get_systems_articles, get_systems_article } from "./data";
 
 const app = new Hono();
 
 app.get("*", renderer);
 
-app.notFound(({ render }) => render(<NotFound />, { title: "Page Not Found" }));
+app.notFound(({ render }) => render(<NotFound />, NotFoundMeta));
 
 // home
-app.get("/", ({ render }) => render(<Home />, { title: "Home", cssFile: "home" }));
+app.get("/", ({ render }) => render(<Home />, HomeMeta));
 
 // resume
-app.get("/resume", ({ render }) => render(<Resume />, { title: "Resume" }));
+app.get("/resume", ({ render }) => render(<Resume />, ResumeMeta));
 
 // systems
-app.get("/systems", ({ render }) => render(<Systems />, { title: "Systems" }));
+app.get("/systems", ({ render }) => render(<Systems />, SystemsMeta));
 
 // systems/:id
 app.get(
@@ -38,18 +38,19 @@ app.get(
     if(id.includes(":")) return;
     const article = await get_systems_article(id);
     if (!article) return notFound();
-    return render(<Article {...article} />, { title: article.title, loadMermaid: true })
+    const meta = createArticleMeta(article);
+    return render(<Article {...article} />, { ...meta, loadMermaid: true });
   }
 );
 
 // talks
-app.get("/talks", ({ render }) => render(<Talks />, { title: "Talks" }));
+app.get("/talks", ({ render }) => render(<Talks />, TalksMeta));
 
 // uses
-app.get("/uses", ({ render }) => render(<Uses />, { title: "Uses" }));
+app.get("/uses", ({ render }) => render(<Uses />, UsesMeta));
 
 // writing
-app.get("/writing", ({ render }) => render(<Writing />, { title: "Writing" }));
+app.get("/writing", ({ render }) => render(<Writing />, WritingMeta));
 
 // writing/:id
 app.get(
@@ -63,7 +64,8 @@ app.get(
     if(id.includes(":")) return;
     const article = await get_blog_article(id);
     if (!article) return notFound();
-    return render(<Article {...article} />, { title: article.title })
+    const meta = createArticleMeta(article);
+    return render(<Article {...article} />, meta)
   }
 );
 

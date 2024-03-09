@@ -1,4 +1,4 @@
-export default function ResumePage() {
+export function Resume() {
   return (
     <>
       <h1 class="visually-hidden">Resume</h1>  
@@ -50,3 +50,7 @@ export default function ResumePage() {
   );
 };
 
+export const ResumeMeta = { 
+  description: "My resume.",
+  title: "Resume" 
+};

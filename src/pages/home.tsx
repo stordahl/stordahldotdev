@@ -3,7 +3,7 @@ import Hero from "../components/Hero";
 import RecentArticles from "../components/RecentArticles";
 import Projects from "../components/Projects";
 
-export default function Home() {
+export function Home() {
   return (
     <>
       <Hero />
@@ -12,4 +12,10 @@ export default function Home() {
       <Projects />
     </>
   );
+};
+
+export const HomeMeta = {
+  title: "Home",
+  description: "Jacob Stordahl's Homepage",
+  cssFile: "home" 
 };

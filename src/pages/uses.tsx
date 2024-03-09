@@ -1,5 +1,4 @@
-
-export default function Uses() {
+export function Uses() {
   return (
     <>
       <h1>Uses</h1> 
@@ -38,3 +37,9 @@ export default function Uses() {
     </>
   );
 };
+
+export const UsesMeta = {
+  description: "A list of the things I use to get my work done",
+  title: "Uses" 
+};
+

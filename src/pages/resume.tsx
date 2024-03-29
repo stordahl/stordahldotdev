@@ -19,8 +19,10 @@ export function Resume() {
             <p>New York, NY &nbsp;|&nbsp; January 2022 to Present</p>
             <ul class="list">
               <li>Core contributor to Stylitics front-end product suite of Third Party JS widgets.</li>
+              <li>Lead development of multiple front-end products</li>
               <li>Lead our migration to modern tooling like Vite, Vitest, and PNPM, which led to a reduction in CI compute time by over 75%.</li>
-              <li>Designed, Built, and Deloyed an internal Error Reporting Cloud Service using Google Cloud Functions and Cloud Logger.</li>
+              <li>Lead design, development, and integration of a Svelte Component library that now powers a large number of Stylitics products.</li>
+              <li>Designed, Built, and Deloyed an internal Error Reporting Service using Google Cloud Services.</li>
               <li>Designed and instituted git based deployment strategies.</li>
               <li>Contribute to our internal and external technical documentation.</li>
             </ul>
@@ -52,5 +54,6 @@ export function Resume() {
 
 export const ResumeMeta = { 
   description: "My resume.",
-  title: "Resume" 
+  title: "Resume",
+  cssFile: "resume"
 };

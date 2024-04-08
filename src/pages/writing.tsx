@@ -3,6 +3,7 @@ export function Writing() {
     <>
       <h1>Writing</h1> 
       <ul>
+        <li><a href="/writing/preview-deploys">Implementing Preview Deploys via Github Actions</a></li>
         <li><a href="/writing/third-party-errors">Monitoring Errors in Third-Party JavaScript Applications</a></li>
         <li><a href="/writing/better-async-typescript">Better Async TypeScript</a></li>
         <li><a href="/writing/the-table-saw-is-a-witch">The Table Saw is a Witch</a></li>

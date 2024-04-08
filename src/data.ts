@@ -130,7 +130,7 @@ export function parse_markdown(raw_markdown: string) {
 export async function highlight_code(html: string) {
   const highlighter = await getHighlighter({
   themes: ["catppuccin-mocha", "github-dark", "vesper"],
-  langs: ["javascript", "typescript", "html", "svelte", "go", "shell"],
+  langs: ["javascript", "typescript", "html", "svelte", "go", "shell", "yaml"],
 })
   const codeBlockRegex = /<pre><code class="language-(.*?)">([\s\S]*?)<\/code><\/pre>/g;
   return html.replace(codeBlockRegex, (_, language, code) => {

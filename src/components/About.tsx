@@ -6,7 +6,7 @@ export default function About() {
       <p>Sometimes <a href="/writing">I write about the web</a>, and the stuff we use to build it.</p>
       <p>More rarely, <a href="/talks">I talk about it</a>.</p>
       <p>Check out some of my open source work <a class="out" target="_blank" rel="noreferrer" href="https://github.com/stordahl">on Github</a>.
-    You can reach me on <a class="out" target="_blank" rel="noreferrer" href="https://twitter.com/stordahldotdev">twitter</a> or shoot me an <a class="out" href="mailto:jacob@stordahl.dev">email</a>. <span> I'm currently <strong><em>not</em></strong> available for hire.</span>
+    You can reach me on <a class="out" target="_blank" rel="noreferrer" href="https://twitter.com/stordahldotdev">twitter</a> or shoot me an <a href="mailto:jacob@stordahl.dev">email</a>. <span> I'm currently <strong><em>not</em></strong> available for hire.</span>
       </p>
     </>
   );

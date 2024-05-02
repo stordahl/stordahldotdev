@@ -33,6 +33,8 @@ body {
   --copy-size: clamp(1rem, calc(.5vw + 1rem), 1.1rem);
   --copy-weight: 500;
   --border: 1px solid var(--light-grey);
+  --shadow-color: #aaaaaa8a;
+  --shadow: 0px 0px 15px var(--shadow-color);
 
 	/* Dynamic Colors */
 	--text-primary: var(--black);
@@ -166,6 +168,32 @@ blockquote {
 blockquote p {
   font-size: clamp(1rem, calc(0.5vw + 1.2rem), 1.4rem);
   line-height: 1.8rem;
+}
+
+a[href^="mailto"] {
+  position: relative;
+}
+
+a[href^="mailto"]:before {
+  content: "Copy";
+  position: absolute;
+  top: 0;
+  transform: translateY(-100%);
+  height: 20px;
+  border: 1px solid var(--text-primary);
+  padding: 3px 5px;
+  background: var(--bg);
+  border-radius: 3px;
+  box-shadow: var(--shadow);
+  transition: opacity 0.2s 0s ease-in-out, transform 0.2s 0s ease-in-out;
+  opacity: 0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+a[href^="mailto"]:hover:before {
+  opacity: 100%;
+  transform: translateY(calc(calc(5px + 100%)* -1));
 }
 
 /* UTILITIES */
@@ -358,7 +386,7 @@ blockquote p {
   }
 
   @media print {
-    #resume .print-hide {
+    .print-hide {
       display: none;
     }
   }
@@ -371,6 +399,7 @@ blockquote p {
       --copy-weight: 400;
       --light-grey: rgb(77, 78, 81);
       --extra-light-grey: #373839;
+      --shadow-color: #0000008a;
     }
 
     img {

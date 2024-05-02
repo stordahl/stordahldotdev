@@ -30,6 +30,7 @@ export const renderer = jsxRenderer(
 							<span>© {new Date().getFullYear()} Jacob Stordahl</span>
 						</div>
 					</footer>
+          <script src="/static/js/main.js" defer/>
           {import.meta.env.PROD &&
             html`<script src="/static/js/counterscale-client.js" defer></script>
             <script

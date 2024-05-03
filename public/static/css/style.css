@@ -25,6 +25,7 @@ body {
   --extra-light-grey: rgb(241 243 246);
   --blue: #1551d8;
   --light-blue: #7d9dff;
+  --green: #45d245;
   --trans-bg: #ffffffd9;
   --font-family: 'Work Sans', sans-serif;
   --heading-family: var(--font-family);
@@ -183,7 +184,7 @@ a[href^="mailto"]:before {
   width: 30px;
   height: 20px;
   min-width: max-content;
-  border: 1px solid var(--text-primary);
+  border: 1px solid var(--light-grey);
   padding: 3px 5px;
   background: var(--bg);
   border-radius: 3px;
@@ -289,6 +290,12 @@ a[href^="mailto"].copied-error:before {
   text-decoration: line-through;
 }
 
+.flex {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
 .flex-row {
   display: flex;
   align-items: center;
@@ -318,6 +325,16 @@ a[href^="mailto"].copied-error:before {
 
 .twitter-tweet.twitter-tweet-rendered {
   margin: 10px auto;
+}
+
+.status {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 100px;
+  background-color: var(--green);
+  box-shadow: 0px 0px 7px var(--green);
+  margin-bottom: -2px;
 }
 
 	header span {
@@ -422,6 +439,10 @@ a[href^="mailto"].copied-error:before {
     code:not(pre>code) {
       background-color: #333741;    
       color: #f2f2f2;
+    }
+
+    .status {
+      filter: saturate(0.7) brightness(0.9);
     }
     
     .mermaid .flowchart-link:not(.nodes .flowchart-link) {

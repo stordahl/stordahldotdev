@@ -45,7 +45,7 @@ body {
 main {
 	padding: 1rem;
   margin: auto;
-  width: clamp(300px, calc(85vw + 5px), 750px);
+  width: clamp(380px, calc(85vw + 5px), 750px);
 }
 
 h1, h2, h3, h4, h5, h6 {

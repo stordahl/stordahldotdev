@@ -1,15 +1,20 @@
 import { Hono } from "hono";
 import { ssgParams } from "hono/ssg";
-import { renderer } from "./renderer";
+import {
+	get_blog_article,
+	get_blog_articles,
+	get_systems_article,
+	get_systems_articles,
+} from "./data";
+import { NotFound, NotFoundMeta } from "./pages/404";
 import { Article, createArticleMeta } from "./pages/article";
 import { Home, HomeMeta } from "./pages/home";
-import { NotFound, NotFoundMeta } from "./pages/404";
 import { Resume, ResumeMeta } from "./pages/resume";
 import { Systems, SystemsMeta } from "./pages/systems";
 import { Talks, TalksMeta } from "./pages/talks";
 import { Uses, UsesMeta } from "./pages/uses";
 import { Writing, WritingMeta } from "./pages/writing";
-import { get_blog_articles, get_blog_article, get_systems_articles, get_systems_article } from "./data";
+import { renderer } from "./renderer";
 
 const app = new Hono();
 
@@ -28,19 +33,19 @@ app.get("/systems", ({ render }) => render(<Systems />, SystemsMeta));
 
 // systems/:id
 app.get(
-  "/systems/:id", 
-  ssgParams(async () => {
-    const data = await get_systems_articles();
-    return data.map(({ path }) => ({ id: path.substring(1) }))
-  }),
-  async ({ notFound, render, req }) => {
-    const id = req.param("id");
-    if(id.includes(":")) return;
-    const article = await get_systems_article(id);
-    if (!article) return notFound();
-    const meta = createArticleMeta(article);
-    return render(<Article {...article} />, { ...meta, loadMermaid: true });
-  }
+	"/systems/:id",
+	ssgParams(async () => {
+		const data = await get_systems_articles();
+		return data.map(({ path }) => ({ id: path.substring(1) }));
+	}),
+	async ({ notFound, render, req }) => {
+		const id = req.param("id");
+		if (id.includes(":")) return;
+		const article = await get_systems_article(id);
+		if (!article) return notFound();
+		const meta = createArticleMeta(article);
+		return render(<Article {...article} />, { ...meta, loadMermaid: true });
+	},
 );
 
 // talks
@@ -54,19 +59,19 @@ app.get("/writing", ({ render }) => render(<Writing />, WritingMeta));
 
 // writing/:id
 app.get(
-  "/writing/:id", 
-  ssgParams(async () => {
-    const data = await get_blog_articles();
-    return data.map(({ path }) => ({ id: path.substring(1) }))
-  }),
-  async ({ notFound, render, req }) => {
-    const id = req.param("id");
-    if(id.includes(":")) return;
-    const article = await get_blog_article(id);
-    if (!article) return notFound();
-    const meta = createArticleMeta(article);
-    return render(<Article {...article} />, meta)
-  }
+	"/writing/:id",
+	ssgParams(async () => {
+		const data = await get_blog_articles();
+		return data.map(({ path }) => ({ id: path.substring(1) }));
+	}),
+	async ({ notFound, render, req }) => {
+		const id = req.param("id");
+		if (id.includes(":")) return;
+		const article = await get_blog_article(id);
+		if (!article) return notFound();
+		const meta = createArticleMeta(article);
+		return render(<Article {...article} />, meta);
+	},
 );
 
 export default app;

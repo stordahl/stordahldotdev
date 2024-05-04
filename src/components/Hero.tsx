@@ -31,6 +31,7 @@ export default function Hero() {
 				style="width: 175px; height: 175px; border-radius: 12px;"
 				src="./static/images/pfp.jpeg"
 				alt="A photograph of the author."
+				loading="lazy"
 			/>
 		</div>
 	);

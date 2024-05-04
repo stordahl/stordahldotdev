@@ -4,11 +4,6 @@ export function Writing() {
 			<h1>Writing</h1>
 			<ul>
 				<li>
-					<a href="/writing/hacking-a-deploy-monorepo">
-						Hacking a Google Cloud Functions Deployment in a Monorepo
-					</a>
-				</li>
-				<li>
 					<a href="/writing/losing-faith-in-bun">Losing Faith in Bun</a>
 				</li>
 				<li>

@@ -10,10 +10,10 @@ export const renderer = jsxRenderer(
 					<meta name="viewport" content="width=device-width" />
 					<meta name="description" content={description} />
 					<link href="/static/favicon-dark.png" rel="icon" />
-					<link href="/static/css/tokens.css" rel="stylesheet" />
-					<link href="/static/css/base.css" rel="stylesheet" />
-					<link href="/static/css/global.css" rel="stylesheet" />
-					<link href="/static/css/utils.css" rel="stylesheet" />
+					<link href="/static/css/tokens.css" rel="stylesheet" preload />
+					<link href="/static/css/base.css" rel="stylesheet" preload />
+					<link href="/static/css/global.css" rel="stylesheet" preload />
+					<link href="/static/css/utils.css" rel="stylesheet" preload />
 					{cssFile && (
 						<link href={`/static/css/${cssFile}.css`} rel="stylesheet" />
 					)}

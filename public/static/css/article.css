@@ -1,0 +1,18 @@
+.demo-canvas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed var(--light-grey);
+  padding: 2rem;
+  position: relative;
+}
+
+.demo-title {
+  font-size: 0.8rem;
+  font-family: var(--copy-family);
+  font-weight: var(--copy-weight);
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  color: var(--light-grey);
+}

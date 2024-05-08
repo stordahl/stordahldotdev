@@ -20,5 +20,6 @@ export async function Article({ content, date, title }: TArticle) {
 export function createArticleMeta(article: TArticle) {
 	return {
 		title: article.title,
+    cssFile: "article"
 	};
 }

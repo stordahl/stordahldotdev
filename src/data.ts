@@ -1,4 +1,4 @@
-import { marked } from "marked";
+import { Token, marked } from "marked";
 import { getHighlighter } from "shiki";
 
 export interface ArticlePath {
@@ -107,15 +107,28 @@ export function parse_description(markdown: string) {
 }
 
 export function parse_markdown(raw_markdown: string) {
+  function walkTokens(token: Token) {
+    const { type } = token;
+
+    // Modify paragraph blocks beginning and ending with $$.
+    if (type === 'code' && token.lang.includes('demo')) {
+      token.lang = 'demo'
+      token.escaped = false;
+    }
+  }
+
 	const renderer = new marked.Renderer();
 	renderer.code = (code, language) => {
 		if (code.match(/^sequenceDiagram/) || code.match(/^flowchart/)) {
 			return `<pre class="mermaid">${code}</pre>`;
 		}
-		return `<pre><code class="language-${language}">${code}</code></pre>`;
-	};
 
-	marked.use({ renderer });
+    if (language?.includes("demo")) return render_demo(code, language as `demo ${string}`);
+
+		return `<pre><code class="language-${language}">${code}</code></pre>`;
+	}
+
+	marked.use({ walkTokens, renderer });
 
 	const tokens = marked.lexer(raw_markdown);
 	for (const token of tokens) {
@@ -149,4 +162,11 @@ export async function highlight_code(html: string) {
 		});
 		return highlightedCode;
 	});
+}
+
+export function render_demo(code: string, language: `demo ${string}`): string {
+  return `<section class="demo-canvas">
+    <span class="demo-title">${language.replace("demo ", "")}</span>
+    ${code}
+  </section>`
 }

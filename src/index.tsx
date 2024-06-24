@@ -15,6 +15,7 @@ import { Talks, TalksMeta } from "./pages/talks";
 import { Uses, UsesMeta } from "./pages/uses";
 import { Writing, WritingMeta } from "./pages/writing";
 import { renderer } from "./renderer";
+import { Consulting, ConsultingMeta } from "./pages/consulting";
 
 const app = new Hono();
 
@@ -24,6 +25,9 @@ app.notFound(({ render }) => render(<NotFound />, NotFoundMeta));
 
 // home
 app.get("/", ({ render }) => render(<Home />, HomeMeta));
+
+// consulting
+app.get("/consulting", ({ render }) => render(<Consulting />, ConsultingMeta));
 
 // resume
 app.get("/resume", ({ render }) => render(<Resume />, ResumeMeta));

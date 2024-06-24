@@ -1,4 +1,5 @@
 import Hero from "../components/Hero";
+import HireMe from "../components/HireMe";
 import Projects from "../components/Projects";
 import RecentArticles from "../components/RecentArticles";
 
@@ -6,6 +7,7 @@ export function Home() {
 	return (
 		<>
 			<Hero />
+      <HireMe />
 			<RecentArticles />
 			<Projects />
 		</>

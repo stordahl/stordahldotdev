@@ -1,8 +1,9 @@
 import { html } from "hono/html";
+import { PropsWithChildren } from "hono/jsx";
 import { jsxRenderer } from "hono/jsx-renderer";
 
 export const renderer = jsxRenderer(
-	({ children, cssFile, description, title, loadMermaid = false }) => {
+	({ children, cssFile, description, title, loadMermaid = false }: PropsWithChildren<CustomRendererProps>) => {
 		return (
 			<html lang="en">
 				<head>
@@ -58,3 +59,10 @@ export const renderer = jsxRenderer(
 		docType: true,
 	},
 );
+
+type CustomRendererProps = {
+  cssFile: string; 
+  description: string; 
+  title: string; 
+  loadMermaid: boolean; 
+}

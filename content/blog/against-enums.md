@@ -1,5 +1,5 @@
 ---
-title: My Case Against TypeScript Enums 
+title: My Case Against TypeScript Enums
 date: "2023-12-31"
 status: published
 ---

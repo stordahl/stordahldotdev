@@ -1,65 +1,79 @@
 import { Token, marked } from "marked";
 import { getHighlighter } from "shiki";
 
-export interface ArticlePath {
+export interface Article {
 	path: string;
+  metadata: ArticleMetaData
 }
 
 export interface ArticleMetaData {
 	title: string;
 	date: string;
+  status: "published" | "draft";
 }
 
-export interface TArticle extends ArticleMetaData {
+export interface TArticle extends Article {
 	content: string;
 }
 
 export async function get_blog_articles() {
-	const allArticles = import.meta.glob("/content/blog/*.md");
+	const allArticles = import.meta.glob("/content/blog/*.md", {as: "raw"});
 	const iterableArticles = Object.entries(allArticles);
 
-	const articlePromises: Promise<ArticlePath>[] = iterableArticles.map(
-		async ([path]): Promise<ArticlePath> => {
-			return { path: path.replace("/content/blog", "").replace(".md", "") };
+	const articlePromises: Promise<Article>[] = iterableArticles.map(
+		async ([path, resolver]): Promise<Article> => {
+      const resolvedPost = await resolver();
+
+			return { 
+        path: path.replace("/content/blog", "").replace(".md", ""), 
+        metadata: parse_frontmatter(resolvedPost)
+      };
 		},
 	);
 
-	return await Promise.all(articlePromises);
+	const res = await Promise.all(articlePromises);
+  return res.sort((a, b) => new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime());
 }
 
 export async function get_blog_article(id: string) {
 	const path = `/content/blog/${id}.md?raw`;
 	const page = await import(path);
 	const markdownString = page.default;
-	const { title, date } = parse_frontmatter(markdownString);
+	const metadata = parse_frontmatter(markdownString);
 	const rawContent = remove_frontmatter(markdownString);
 	const parsedContent = parse_markdown(rawContent);
 
-	return { content: parsedContent, title, date };
+	return { content: parsedContent, metadata, path: id };
 }
 
 export async function get_systems_articles() {
-	const allArticles = import.meta.glob("/content/systems/*.md");
+	const allArticles = import.meta.glob("/content/systems/*.md", { as: "raw" });
 	const iterableArticles = Object.entries(allArticles);
 
-	const articlePromises: Promise<ArticlePath>[] = iterableArticles.map(
-		async ([path]): Promise<ArticlePath> => {
-			return { path: path.replace("/content/systems", "").replace(".md", "") };
+	const articlePromises: Promise<Article>[] = iterableArticles.map(
+		async ([path, resolver]): Promise<Article> => {
+      const resolvedPost = await resolver();
+
+			return { 
+        path: path.replace("/content/systems", "").replace(".md", ""),
+        metadata: parse_frontmatter(resolvedPost),
+      };
 		},
 	);
 
-	return await Promise.all(articlePromises);
+	const res = await Promise.all(articlePromises);
+  return res.sort((a, b) => new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime());
 }
 
 export async function get_systems_article(id: string) {
 	const path = `/content/systems/${id}.md?raw`;
 	const page = await import(path);
 	const markdownString = page.default;
-	const { title, date } = parse_frontmatter(markdownString);
+	const metadata = parse_frontmatter(markdownString);
 	const rawContent = remove_frontmatter(markdownString);
 	const parsedContent = parse_markdown(rawContent);
 
-	return { content: parsedContent, title, date };
+	return { content: parsedContent, metadata, path: id };
 }
 
 export function parse_frontmatter(markdown: string): ArticleMetaData {

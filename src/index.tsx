@@ -55,7 +55,10 @@ app.get("/talks", ({ render }) => render(<Talks />, TalksMeta));
 app.get("/uses", ({ render }) => render(<Uses />, UsesMeta));
 
 // writing
-app.get("/writing", ({ render }) => render(<Writing />, WritingMeta));
+app.get("/writing", async ({ render }) => {
+  const articles = await get_blog_articles();
+  return render(<Writing articles={articles}/>, WritingMeta)
+});
 
 // writing/:id
 app.get(

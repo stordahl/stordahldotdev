@@ -1,5 +1,5 @@
 ---
-title: The Executive's Individual Contributor 
+title: The Executive's Individual Contributor
 date: "2024-01-10"
 status: published
 ---

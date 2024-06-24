@@ -17,7 +17,15 @@
   padding: 16px;
 }
 
-.card a {
+.card-dash {
+  border: 1px dashed var(--light-grey);
+}
+
+div.card {
+  margin-bottom: 1rem;
+}
+
+.card > a {
   display: flex;
   flex-direction: column;
   gap: 5px;

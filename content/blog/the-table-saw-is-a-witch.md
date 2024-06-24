@@ -1,5 +1,5 @@
 ---
-title: The Table Saw is a Witch 
+title: The Table Saw is a Witch
 date: "2024-01-18"
 status: published
 ---

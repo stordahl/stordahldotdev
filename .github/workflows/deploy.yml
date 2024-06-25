@@ -28,6 +28,7 @@ jobs:
 
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
+        id: cloudflare-publish
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: bf16b4be10661c4e23505067aa825b25
@@ -36,3 +37,7 @@ jobs:
           gitHubToken: ${{ secrets.GH_RELEASE_TOKEN }}
           productionBranch: main
           wranglerVersion: '3'
+      - uses: mshick/add-pr-comment@v2
+        with:
+          message: |
+            🚀 This branch can be previewed at ${{ steps.cloudflare-publish.outputs.url }}

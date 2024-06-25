@@ -6,7 +6,7 @@ export function Writing({ articles }: {articles: Article[]}) {
 			<h1>Writing</h1>
 			<ul>
         {articles.map(({ metadata, path }) => {
-          return metadata.status === "published" && <li><a href={path}>{metadata.title}</a></li>
+          return metadata.status === "published" && <li><a href={`writing${path}`}>{metadata.title}</a></li>
         })}
 			</ul>
 		</>

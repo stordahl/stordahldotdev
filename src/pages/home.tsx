@@ -17,5 +17,4 @@ export function Home() {
 export const HomeMeta = {
 	title: "Home",
 	description: "Jacob Stordahl's Homepage",
-	cssFile: "home",
 };

@@ -1,15 +1,14 @@
+import Card, { type CardProps } from "./Card";
+
 export default function RecentArticles() {
 	return (
 		<>
 			<h2>Writing</h2>
 			<ul>
-				{recent_articles.map(({ description, slug, title }) => {
+				{recent_articles.map((props) => {
 					return (
-						<li class="card">
-							<a href={`/writing/${slug}`}>
-								<h3>{title}</h3>
-								<p>{description}</p>
-							</a>
+						<li>
+							<Card {...props} url={`/writing/${props.slug}`} />
 						</li>
 					);
 				})}
@@ -39,8 +38,4 @@ const recent_articles: RecentArticle[] = [
 	},
 ];
 
-type RecentArticle = {
-	description: string;
-	slug: string;
-	title: string;
-};
+type RecentArticle = Omit<CardProps, "url"> & { slug: string };

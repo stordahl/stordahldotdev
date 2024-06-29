@@ -1,11 +1,11 @@
-declare module 'hono' {
-  interface ContextRenderer {
-    (content: string | Promise<string>, 
-     props: {			
-      title?: string;
+declare module "hono" {
+	type ContextRenderer = (
+		content: string | Promise<string>,
+		props: {
+			title?: string;
 			description?: string;
 			cssFile?: string;
-			loadMermaid?: boolean; 
-     }): Response
-  }
+			loadMermaid?: boolean;
+		},
+	) => Response;
 }

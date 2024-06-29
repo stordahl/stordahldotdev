@@ -1,20 +1,14 @@
+import Card, { type CardProps } from "./Card";
+
 export default function Projects() {
 	return (
 		<>
 			<h2>Projects</h2>
 			<ul>
-				{projects.map(({ description, tech, title, url }) => {
+				{projects.map((props) => {
 					return (
-						<li class="card">
-							<a href={url}>
-								<h3>{title}</h3>
-								<p>{description}</p>
-								<div class="tags">
-									{tech.map((str) => (
-										<span>{str}</span>
-									))}
-								</div>
-							</a>
+						<li>
+							<Card {...props} />
 						</li>
 					);
 				})}
@@ -23,25 +17,18 @@ export default function Projects() {
 	);
 }
 
-const projects: Project[] = [
+const projects: CardProps[] = [
 	{
 		description:
 			"Collect historical performance data on your products via Lighthouse CI & Github Actions",
 		url: "https://github.com/stordahl/datahog",
-		tech: ["javascript"],
+		tags: ["javascript"],
 		title: "datahog",
 	},
 	{
 		description: "A custom context menu for your Svelte Application",
 		url: "https://github.com/stordahl/svelte-right-click",
-		tech: ["svelte", "typescript"],
+		tags: ["svelte", "typescript"],
 		title: "svelte-right-click",
 	},
 ];
-
-type Project = {
-	description: string;
-	url: string;
-	tech: string[];
-	title: string;
-};

@@ -7,7 +7,7 @@ export function Home() {
 	return (
 		<>
 			<Hero />
-      <HireMe />
+			<HireMe />
 			<RecentArticles />
 			<Projects />
 		</>

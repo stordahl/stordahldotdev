@@ -1,15 +1,15 @@
-import { Token, marked } from "marked";
+import { type Token, marked } from "marked";
 import { getHighlighter } from "shiki";
 
 export interface Article {
 	path: string;
-  metadata: ArticleMetaData
+	metadata: ArticleMetaData;
 }
 
 export interface ArticleMetaData {
 	title: string;
 	date: string;
-  status: "published" | "draft";
+	status: "published" | "draft";
 }
 
 export interface TArticle extends Article {
@@ -17,22 +17,25 @@ export interface TArticle extends Article {
 }
 
 export async function get_blog_articles() {
-	const allArticles = import.meta.glob("/content/blog/*.md", {as: "raw"});
+	const allArticles = import.meta.glob("/content/blog/*.md", { as: "raw" });
 	const iterableArticles = Object.entries(allArticles);
 
 	const articlePromises: Promise<Article>[] = iterableArticles.map(
 		async ([path, resolver]): Promise<Article> => {
-      const resolvedPost = await resolver();
+			const resolvedPost = await resolver();
 
-			return { 
-        path: path.replace("/content/blog", "").replace(".md", ""), 
-        metadata: parse_frontmatter(resolvedPost)
-      };
+			return {
+				path: path.replace("/content/blog", "").replace(".md", ""),
+				metadata: parse_frontmatter(resolvedPost),
+			};
 		},
 	);
 
 	const res = await Promise.all(articlePromises);
-  return res.sort((a, b) => new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime());
+	return res.sort(
+		(a, b) =>
+			new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime(),
+	);
 }
 
 export async function get_blog_article(id: string) {
@@ -52,17 +55,20 @@ export async function get_systems_articles() {
 
 	const articlePromises: Promise<Article>[] = iterableArticles.map(
 		async ([path, resolver]): Promise<Article> => {
-      const resolvedPost = await resolver();
+			const resolvedPost = await resolver();
 
-			return { 
-        path: path.replace("/content/systems", "").replace(".md", ""),
-        metadata: parse_frontmatter(resolvedPost),
-      };
+			return {
+				path: path.replace("/content/systems", "").replace(".md", ""),
+				metadata: parse_frontmatter(resolvedPost),
+			};
 		},
 	);
 
 	const res = await Promise.all(articlePromises);
-  return res.sort((a, b) => new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime());
+	return res.sort(
+		(a, b) =>
+			new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime(),
+	);
 }
 
 export async function get_systems_article(id: string) {
@@ -121,15 +127,15 @@ export function parse_description(markdown: string) {
 }
 
 export function parse_markdown(raw_markdown: string) {
-  function walkTokens(token: Token) {
-    const { type } = token;
+	function walkTokens(token: Token) {
+		const { type } = token;
 
-    // Modify paragraph blocks beginning and ending with $$.
-    if (type === 'code' && token.lang.includes('demo')) {
-      token.lang = 'demo'
-      token.escaped = false;
-    }
-  }
+		// Modify paragraph blocks beginning and ending with $$.
+		if (type === "code" && token.lang.includes("demo")) {
+			token.lang = "demo";
+			token.escaped = false;
+		}
+	}
 
 	const renderer = new marked.Renderer();
 	renderer.code = (code, language) => {
@@ -137,10 +143,11 @@ export function parse_markdown(raw_markdown: string) {
 			return `<pre class="mermaid">${code}</pre>`;
 		}
 
-    if (language?.includes("demo")) return render_demo(code, language as `demo ${string}`);
+		if (language?.includes("demo"))
+			return render_demo(code, language as `demo ${string}`);
 
 		return `<pre><code class="language-${language}">${code}</code></pre>`;
-	}
+	};
 
 	marked.use({ walkTokens, renderer });
 
@@ -179,8 +186,8 @@ export async function highlight_code(html: string) {
 }
 
 export function render_demo(code: string, language: `demo ${string}`): string {
-  return `<section class="demo-canvas">
+	return `<section class="demo-canvas">
     <span class="demo-title">${language.replace("demo ", "")}</span>
     ${code}
-  </section>`
+  </section>`;
 }

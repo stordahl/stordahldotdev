@@ -1,7 +1,10 @@
 import { raw } from "hono/html";
 import { type TArticle, highlight_code } from "../data";
 
-export async function Article({ content, metadata: { date, title } }: TArticle) {
+export async function Article({
+	content,
+	metadata: { date, title },
+}: TArticle) {
 	const published = new Date(date).toLocaleDateString("en", {
 		month: "long",
 		day: "2-digit",
@@ -20,6 +23,6 @@ export async function Article({ content, metadata: { date, title } }: TArticle) 
 export function createArticleMeta({ metadata: { title } }: TArticle) {
 	return {
 		title,
-    cssFile: "article"
+		cssFile: "article",
 	};
 }

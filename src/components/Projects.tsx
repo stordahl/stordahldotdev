@@ -7,7 +7,7 @@ export default function Projects() {
 			<ul>
 				{projects.map((props) => {
 					return (
-						<li>
+						<li key={props.title}>
 							<Card {...props} />
 						</li>
 					);

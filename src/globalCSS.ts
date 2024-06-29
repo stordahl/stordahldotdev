@@ -1,4 +1,4 @@
-import { css } from "hono/css"
+import { css } from "hono/css";
 
 export const _globalCss = css`
   :-hono-global {
@@ -150,4 +150,4 @@ blockquote p {
       }
     }
   }
-`
+`;

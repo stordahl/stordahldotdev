@@ -7,7 +7,7 @@ export default function RecentArticles() {
 			<ul>
 				{recent_articles.map((props) => {
 					return (
-						<li>
+						<li key={props.title}>
 							<Card {...props} url={`/writing/${props.slug}`} />
 						</li>
 					);

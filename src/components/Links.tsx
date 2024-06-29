@@ -9,7 +9,7 @@ export default function Links() {
 	return (
 		<div class={_linksRow}>
 			{links.map(({ iconComponent: Component, url }) => (
-				<a href={url} target="_blank" rel="noreferrer">
+				<a key={url} href={url} target="_blank" rel="noreferrer">
 					<Component />
 				</a>
 			))}

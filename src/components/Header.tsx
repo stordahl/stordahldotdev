@@ -8,7 +8,9 @@ export default function Header() {
 			<nav class="print-hide">
 				<a href="/">home</a>
 				{pages.map((text) => (
-					<a href={`/${text}`}>{text}</a>
+					<a key={text} href={`/${text}`}>
+						{text}
+					</a>
 				))}
 			</nav>
 		</header>

@@ -40,7 +40,7 @@ function CardContent({
 			{tags && (
 				<div class={_tags}>
 					{tags.map((str) => (
-						<span>{str}</span>
+						<span key={str}>{str}</span>
 					))}
 				</div>
 			)}

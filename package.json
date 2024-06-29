@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build && cp -r ./public/* ./dist/",
-    "check": "pnpm dlx @biomejs/biome check --apply ./src",
+    "check": "pnpm dlx @biomejs/biome check --write ./src",
     "preview": "wrangler pages dev dist",
     "deploy": "$npm_execpath run build && wrangler pages deploy dist"
   },

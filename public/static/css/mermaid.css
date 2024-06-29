@@ -1,0 +1,11 @@
+pre.mermaid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  .mermaid .flowchart-link:not(.nodes .flowchart-link) {
+    filter: invert(1);
+  }
+}

@@ -1,13 +1,19 @@
-import { Article } from "../data";
+import type { Article } from "../data";
 
-export function Writing({ articles }: {articles: Article[]}) {
+export function Writing({ articles }: { articles: Article[] }) {
 	return (
 		<>
 			<h1>Writing</h1>
 			<ul>
-        {articles.map(({ metadata, path }) => {
-          return metadata.status === "published" && <li><a href={`writing${path}`}>{metadata.title}</a></li>
-        })}
+				{articles.map(({ metadata, path }) => {
+					return (
+						metadata.status === "published" && (
+							<li>
+								<a href={`/writing${path}`}>{metadata.title}</a>
+							</li>
+						)
+					);
+				})}
 			</ul>
 		</>
 	);

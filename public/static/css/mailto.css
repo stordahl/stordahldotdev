@@ -1,0 +1,37 @@
+a[href^="mailto"] {
+  position: relative;
+}
+
+a[href^="mailto"]:before {
+  content: "Copy";
+  position: absolute;
+  top: 0;
+  transform: translateY(-100%);
+  width: 30px;
+  height: 20px;
+  min-width: max-content;
+  border: 1px solid var(--light-grey);
+  padding: 3px 5px;
+  background: var(--bg);
+  border-radius: 3px;
+  box-shadow: var(--shadow);
+  transition: opacity 0.2s 0s ease-in-out, transform 0.2s 0s ease-in-out;
+  opacity: 0;
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+a[href^="mailto"]:hover:before {
+  opacity: 100%;
+  transform: translateY(calc(calc(5px + 100%)* -1));
+}
+/* clicked state util class */
+a[href^="mailto"].copied:before {
+  content: "\2713";
+}
+
+a[href^="mailto"].copied-error:before {
+  content: "\2715";
+}
+

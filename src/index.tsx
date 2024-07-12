@@ -8,6 +8,7 @@ import {
 } from "./data";
 import { NotFound, NotFoundMeta } from "./pages/404";
 import { Article, createArticleMeta } from "./pages/article";
+import { Consulting, ConsultingMeta } from "./pages/consulting";
 import { Home, HomeMeta } from "./pages/home";
 import { Resume, ResumeMeta } from "./pages/resume";
 import { Systems, SystemsMeta } from "./pages/systems";
@@ -24,6 +25,9 @@ app.notFound(({ render }) => render(<NotFound />, NotFoundMeta));
 
 // home
 app.get("/", ({ render }) => render(<Home />, HomeMeta));
+
+// consulting
+app.get("/consulting", ({ render }) => render(<Consulting />, ConsultingMeta));
 
 // resume
 app.get("/resume", ({ render }) => render(<Resume />, ResumeMeta));
@@ -56,8 +60,8 @@ app.get("/uses", ({ render }) => render(<Uses />, UsesMeta));
 
 // writing
 app.get("/writing", async ({ render }) => {
-  const articles = await get_blog_articles();
-  return render(<Writing articles={articles}/>, WritingMeta)
+	const articles = await get_blog_articles();
+	return render(<Writing articles={articles} />, WritingMeta);
 });
 
 // writing/:id

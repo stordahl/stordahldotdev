@@ -50,8 +50,3 @@
     }
   }
 
-  @media print {
-    #resume .print-hide {
-      display: none;
-    }
-  }

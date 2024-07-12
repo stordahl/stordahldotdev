@@ -1,3 +1,4 @@
+import { css } from "hono/css";
 import type { FC } from "hono/jsx";
 import EmailIcon from "./icons/EmailIcon";
 import GithubIcon from "./icons/GithubIcon";
@@ -6,9 +7,9 @@ import TwitterIcon from "./icons/TwitterIcon";
 
 export default function Links() {
 	return (
-		<div class="links-row">
+		<div class={_linksRow}>
 			{links.map(({ iconComponent: Component, url }) => (
-				<a href={url} target="_blank" rel="noreferrer">
+				<a key={url} href={url} target="_blank" rel="noreferrer">
 					<Component />
 				</a>
 			))}
@@ -44,3 +45,23 @@ type Link = {
 	iconName: "Github" | "Twitter" | "LinkedIn" | "Email";
 	url: string;
 };
+
+const _linksRow = css` 
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+
+  a { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    color: var(--text-primary);
+    background-color: var(--extra-light-grey);
+    border-radius: 5px;
+    svg {
+      width: 22px;
+    }
+  }
+`;

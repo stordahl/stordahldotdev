@@ -1,9 +1,19 @@
-import { html } from "hono/html";
-import { PropsWithChildren } from "hono/jsx";
+import { Style, css } from "hono/css";
+import type { PropsWithChildren } from "hono/jsx";
 import { jsxRenderer } from "hono/jsx-renderer";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Scripts from "./components/Scripts";
+import { _globalCss } from "./globalCSS";
 
 export const renderer = jsxRenderer(
-	({ children, cssFile, description, title, loadMermaid = false }: PropsWithChildren<CustomRendererProps>) => {
+	({
+		children,
+		cssFile,
+		description,
+		title,
+		loadMermaid = false,
+	}: PropsWithChildren<CustomRendererProps>) => {
 		return (
 			<html lang="en">
 				<head>
@@ -12,45 +22,21 @@ export const renderer = jsxRenderer(
 					<meta name="description" content={description} />
 					<link href="/static/favicon-dark.png" rel="icon" />
 					<link href="/static/css/tokens.css" rel="stylesheet" preload />
-					<link href="/static/css/base.css" rel="stylesheet" preload />
-					<link href="/static/css/global.css" rel="stylesheet" preload />
-					<link href="/static/css/utils.css" rel="stylesheet" preload />
+					<link href="/static/css/mailto.css" rel="stylesheet" preload />
+					<Style />
 					{cssFile && (
 						<link href={`/static/css/${cssFile}.css`} rel="stylesheet" />
 					)}
+					{loadMermaid && (
+						<link href="/static/css/mermaid.css" rel="stylesheet" preload />
+					)}
 					<title>{title} | Jacob Stordahl</title>
 				</head>
-				<body>
-					<header>
-						<span>stordahl.dev</span>
-						<nav class="print-hide">
-							<a href="/">home</a>
-							<a href="/writing">writing</a>
-							<a href="/talks">talks</a>
-							<a href="/systems">systems</a>
-						</nav>
-					</header>
-					<main>{children}</main>
-					<footer>
-						<div id="copyright">
-							<span>© {new Date().getFullYear()} Jacob Stordahl</span>
-						</div>
-					</footer>
-					<script src="/static/js/main.js" defer />
-					{import.meta.env.PROD &&
-						html`<script src="/static/js/counterscale-client.js" defer></script>
-            <script
-              id="counterscale-script"
-              src="https://counterscale.stordahldev.workers.dev/tracker.js"
-              defer
-          ></script>`}
-					{loadMermaid &&
-						html`
-            <script type="module" async defer>
-              import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-              mermaid.initialize({ startOnLoad: true });
-            </script>
-          `}
+				<body class={_globalCss}>
+					<Header />
+					<main class={_main}>{children}</main>
+					<Footer />
+					<Scripts loadMermaid={loadMermaid} />
 				</body>
 			</html>
 		);
@@ -61,8 +47,14 @@ export const renderer = jsxRenderer(
 );
 
 type CustomRendererProps = {
-  cssFile: string; 
-  description: string; 
-  title: string; 
-  loadMermaid: boolean; 
-}
+	cssFile: string;
+	description: string;
+	title: string;
+	loadMermaid: boolean;
+};
+
+const _main = css`	
+  padding: 1rem;
+  margin: auto;
+  width: clamp(380px, calc(85vw + 5px), 750px);
+`;

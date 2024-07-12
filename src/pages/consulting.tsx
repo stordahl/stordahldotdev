@@ -7,9 +7,8 @@ export function Consulting() {
 			<p>
 				Unlock the full potential of your web software with expert guidance on
 				Third Party JavaScript development. Whether you are looking to build
-				SDKs, widgets, or analytics tools, I'd love to work with your team to
-				ensure modern developer experience, seamless integration, and optimized
-				performance.
+				SDKs, widgets, or analytics tools, I can help get your team up to speed 
+        and get your product to production.
 			</p>
 
 			<h2>Why Third Party JavaScript Matters</h2>
@@ -17,7 +16,7 @@ export function Consulting() {
 				In today's interconnected web ecosystem, providing a Third Party
 				JavaScript integration for your software can bring a lot of value to
 				your business. From embedded widgets to complex analytics solutions,
-				third-party scripts enrich user experiences while provided a platform
+				third-party scripts enrich user experiences while providing a platform
 				agnostic integration target.
 			</p>
 
@@ -39,9 +38,7 @@ export function Consulting() {
 				</a>
 				. Currently, I'm a Product Engineer at{" "}
 				<a href="https://stylitics.com">Stylitics</a>, which has provided me
-				time to go deep on the problem space of Third Party JavaScript, and now
-				I'm looking to help other teams navigate this fruitful though ambiguous
-				product market.
+				nearly 3 years to go deep on the problem space of Third Party JavaScript.
 			</p>
 
 			<Card dashed={true}>
@@ -63,5 +60,5 @@ export function Consulting() {
 
 export const ConsultingMeta = {
 	title: "Consulting",
-	description: "",
+	description: "Third Party JavaScript Consulting",
 };
